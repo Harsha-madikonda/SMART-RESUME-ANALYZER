@@ -1,0 +1,33 @@
+OBJECTIVE
+Passionate Computer Science student with strong skills in Python, Java, and web development. Seeking a
+software development internship to apply technical expertise, contribute to building impactful solutions, and
+gain hands-on experience by collaborating with industry professionals on real-world projects.
+
+EDUCATION
+Bachelor of Technology (B.Tech) — Computer Science and Engineering (AIML) 2023-2027
+SR University, Warangal
+• CGPA: 8.1 / 10
+
+TECHNICAL SKILLS
+Languages & Relevant Coursework: Java, Python, Data Structures Algorithms (DSA)
+Frontend: React.js, HTML, CSS, JavaScript
+Backend: Node.js, Express.js
+Database Management: MySQL, PL/SQL, MongoDB
+Tools & IDEs: GitHub, VsCode
+
+PROJECTS
+1. Online Learning Platform (MERN Stack) [Demo] [GitHub]
+• Built a full-stack web app with React, Node.js, Express, and MongoDB with JWT-based
+authentication.
+• Implemented role-based access where Admin manages courses and Students can view
+course content.
+2. Micro Information Technology Services – Ambala, Haryana (June 2025) [Micro IT]
+• Developed Python-based mini applications during a 1-month internship.
+• Improved coding style and efficiency through industry guidance.
+
+ACHIVEMENTS
+• Solved 100+ problems on LeetCode [Link]
+• Cisco Networking Academy: Introduction to Packet Tracer – Gained hands-on experience in
+computer networking concepts, simulations, using Cisco Packet Tracer. [Link]
+• Microsoft Certified: Azure AI Fundamentals (AI-900), completed in September 2025. Certificate is
+also uploaded and verified on my LinkedIn profile. 
