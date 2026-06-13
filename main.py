@@ -1,6 +1,7 @@
 print("=========================================================================")
 print("SMART RESUME ANALYZER")
 print("=========================================================================")
+# Version 1.1
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 with open("resume.txt","r", encoding="utf-8") as file:
