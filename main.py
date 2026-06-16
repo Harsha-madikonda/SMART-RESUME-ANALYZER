@@ -2,13 +2,28 @@ print("=========================================================================
 print("SMART RESUME ANALYZER")
 print("=========================================================================")
 # Version 1.1
+import spacy
+nlp=spacy.load("en_core_web_sm")
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 with open("resume.txt","r", encoding="utf-8") as file:
     resume_text= file.read()
 with open("job_description.txt","r", encoding="utf-8") as file:
     jd_text=file.read()
-documents=[resume_text,jd_text]
+
+#removing stop words and punct
+def clean_text(input):
+    doc=nlp(input)
+    clean_words=[]
+    for words in doc:
+        if not words.is_stop and not words.is_punct:
+            clean_words.append(words.lemma_.lower())
+    return " ".join(clean_words)
+clean_resume=clean_text(resume_text)
+clean_jd=clean_text(jd_text)
+            
+    
+documents=[clean_resume,clean_jd]
 
 tfidf=TfidfVectorizer()
 vectors=tfidf.fit_transform(documents)
@@ -18,6 +33,9 @@ similarity=cosine_similarity(vectors[0:1],vectors[1:2])
 score=similarity[0][0]
 p=score*100
 print(f"\nMatch Score = {p:.2f}%\n")
+
+
+
 
 all_skills = [
     "python", "java", "react", "node.js", "mongodb", "docker", "aws", "rest apis", "kubernetes", 
@@ -73,5 +91,18 @@ print("Suggested Improvements")
 print("--------------------------------------------------------------------------")
 for ms in miss_skill:
     print(f"• {suggestions.get(ms)}")
+
+#Extract the key words
+def key_extraction(sent):
+    doc=nlp(sent)
+    key_words=[]
+    for words in doc:
+        if not words.is_stop and not words.is_punct and not words.is_space:
+            key_words.append(words.lemma_.lower())
+    return key_words
+print("EXTRACTION WORDS")
+#print(key_extraction())
+jd_keywords=key_extraction(jd_text)
+print(jd_keywords)
 
 
