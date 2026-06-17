@@ -91,18 +91,12 @@ print("Suggested Improvements")
 print("--------------------------------------------------------------------------")
 for ms in miss_skill:
     print(f"• {suggestions.get(ms)}")
-
-#Extract the key words
-def key_extraction(sent):
-    doc=nlp(sent)
-    key_words=[]
-    for words in doc:
-        if not words.is_stop and not words.is_punct and not words.is_space:
-            key_words.append(words.lemma_.lower())
-    return key_words
-print("EXTRACTION WORDS")
+#chunks
+#doc=nlp(jd_text)
+#for token in doc.noun_chunks:
+#        print(token.text)
 #print(key_extraction())
-jd_keywords=key_extraction(jd_text)
-print(jd_keywords)
+#jd_keywords=key_extraction(jd_text)
+#print(key_words)
 
 
