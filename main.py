@@ -1,6 +1,8 @@
+from spacy.matcher import PhraseMatcher
+import csv
 print("=========================================================================")
-print("SMART RESUME ANALYZER")
-print("=========================================================================")
+print("                      SMART RESUME ANALYZER")
+#print("=========================================================================")
 # Version 1.1
 import spacy
 nlp=spacy.load("en_core_web_sm")
@@ -12,8 +14,8 @@ with open("job_description.txt","r", encoding="utf-8") as file:
     jd_text=file.read()
 
 #removing stop words and punct
-def clean_text(input):
-    doc=nlp(input)
+def clean_text(text):
+    doc=nlp(text)
     clean_words=[]
     for words in doc:
         if not words.is_stop and not words.is_punct:
@@ -32,52 +34,94 @@ similarity=cosine_similarity(vectors[0:1],vectors[1:2])
 
 score=similarity[0][0]
 p=score*100
-print(f"\nMatch Score = {p:.2f}%\n")
 
 
+#csv file to dectionary
+skills_db = {}
+
+with open("skills.csv", "r", encoding="utf-8") as file:
+    reader = csv.DictReader(file)
+
+    for row in reader:
+        skills_db[row["skill"].lower()] = row["suggestion"]
+matcher = PhraseMatcher(nlp.vocab, attr="LOWER")
+
+patterns = []
+
+for skill in skills_db.keys():
+    patterns.append(nlp.make_doc(skill))
+
+matcher.add("SKILLS", patterns)
+
+def extract_skills(text):
+    doc = nlp(text)
+
+    matches = matcher(doc)
+
+    found_skills = set()
+
+    for match_id, start, end in matches:
+        found_skills.add(doc[start:end].text.lower())
+
+    return sorted(list(found_skills))
 
 
-all_skills = [
+'''all_skills = [
     "python", "java", "react", "node.js", "mongodb", "docker", "aws", "rest apis", "kubernetes", 
-    "jenkins", "terraform", "sql", "html", "css", "javascript"]
+    "jenkins", "terraform", "sql", "html", "css", "javascript"]'''
 miss_skill=[]
 jd_skill=[]
-reume_skill=[]
+resume_skill=[]
 
-#check skills in JD
-for skill in range(len(all_skills)):
-    if all_skills[skill] in jd_text.lower():
-        jd_skill.append(all_skills[skill])
+jd_skill = extract_skills(jd_text)
 
-#check skills in resume
-for skill in range(len(all_skills)):
-    if all_skills[skill] in resume_text.lower():
-        reume_skill.append(all_skills[skill])
+resume_skill = extract_skills(resume_text)
 
 #now compare jd_skills and resume_skills
 for skill in jd_skill:
-    if skill not in reume_skill:
+    if skill not in resume_skill:
         miss_skill.append(skill)
+# comapre jd and reusme to write strengths 
+strengths = []
+
+for skill in jd_skill:
+    if skill in resume_skill:
+        strengths.append(skill)
 
 print("--------------------------------------------------------------------------")
-print("JD Skills")
+print("JD Skills:")
 print("--------------------------------------------------------------------------")
 for i in range(len(jd_skill)):
     print(f"• {jd_skill[i]}")
 
-print("\n--------------------------------------------------------------------------")
-print("Resume Skills")
-print("--------------------------------------------------------------------------")
-for i in range(len(reume_skill)):
-    print(f"• {reume_skill[i]}")
+print("\n-------------------------------------------------------------------------")
+print("Resume Skills:")
+print("---------------------------------------------------------------------------")
+for i in range(len(resume_skill)):
+    print(f"• {resume_skill[i]}")
 
+#print score
+print("\n==========================================================================")
+print("                             ATS REPORT")
+print("============================================================================")
+print(f"\nMatch Score = {p:.2f}%\n")
+
+#Strenghts print
 print("\n--------------------------------------------------------------------------")
-print("Missing Skills")
-print("--------------------------------------------------------------------------")
-for i in range(len(miss_skill)):
-    print(f"• {miss_skill[i]}")
-    
-suggestions = {
+print("Strengths:")
+print("----------------------------------------------------------------------------")
+for skill in strengths:
+    print(f"✓ {skill}")
+
+#print missing skills
+print("\n--------------------------------------------------------------------------")
+print("Missing Skills:")
+print("----------------------------------------------------------------------------")
+for skill in miss_skill:
+    print(f"✗ {skill}")
+
+
+'''suggestions = {
     "docker": "Learn Docker and build containerized applications",
     "aws": "Learn AWS cloud services and deployment",
     "rest apis": "Build projects using REST APIs",
@@ -85,18 +129,11 @@ suggestions = {
     "jenkins": "Learn CI/CD pipelines using Jenkins",
     "terraform": "Learn Infrastructure as Code using Terraform",
     "python": "It's better to focus more on leetcode problems on python."
-}
+}'''
 print("\n--------------------------------------------------------------------------")
-print("Suggested Improvements")
-print("--------------------------------------------------------------------------")
+print("Recommendations:")
+print("----------------------------------------------------------------------------")
 for ms in miss_skill:
-    print(f"• {suggestions.get(ms)}")
-#chunks
-#doc=nlp(jd_text)
-#for token in doc.noun_chunks:
-#        print(token.text)
-#print(key_extraction())
-#jd_keywords=key_extraction(jd_text)
-#print(key_words)
+    print(f"• {skills_db.get(ms, f'Consider learning {ms}')}")
 
 
