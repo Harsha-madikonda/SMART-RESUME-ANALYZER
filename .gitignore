@@ -2,3 +2,4 @@ spacy_test.py
 test.py
 __pycache__/
 *.pyc
+ATS_Report.pdf

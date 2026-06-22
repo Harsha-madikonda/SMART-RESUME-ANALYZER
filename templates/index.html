@@ -1,25 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Smart Resume Analyzer</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f6f9;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .card{
+            background:white;
+            padding:40px;
+            border-radius:12px;
+            box-shadow:0px 4px 12px rgba(0,0,0,0.1);
+            width:450px;
+        }
+
+        h1{
+            text-align:center;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input{
+            margin-top:10px;
+            margin-bottom:20px;
+            width:100%;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#007bff;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            background:#0056b3;
+        }
+
+    </style>
+
 </head>
+
 <body>
-    <h1>Smart Resume Analyzer</h1>
 
-<form method="POST" enctype="multipart/form-data">
-    <label>Upload Resume</label>
-    <br><br>
+    <div class="card">
 
-    <input type="file" name="resume">
-    <br><br>
+        <h1>Smart Resume Analyzer</h1>
+        <form method="POST" enctype="multipart/form-data">
 
-    <label>Upload Job Description</label>
-    <br><br>
+    <label>Upload Resume (PDF)</label>
+    <input type="file" name="resume" required>
 
-    <input type="file" name="jd">
-    <br><br>
+    <label>Upload Job Description File (PDF or TXT)</label>
+    <input type="file" name="jd_file">
 
-    <button>Analyze Resume</button>
+    <label>OR Paste Job Description</label>
+    <textarea
+        name="jd_text"
+        rows="8"
+        style="width:100%; margin-top:10px; margin-bottom:20px;"
+        placeholder="Paste Job Description here..."></textarea>
+
+    <button type="submit">
+        Analyze Resume
+    </button>
+
 </form>
+
+    </div>
+
 </body>
 </html>

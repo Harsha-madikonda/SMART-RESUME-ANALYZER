@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>ATS Report</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>SMART RESUME ANALYZER</h1>
+
+    <!-- ATS Scores -->
+    <div class="card">
+
+        <h2>ATS Scores</h2>
+
+        <h3>Semantic Match Score</h3>
+
+        <div class="progress-bar">
+            <div class="progress-fill"
+                 style="width: {{ result.semantic_score }}%; background:blue;">
+                 {{ "%.2f"|format(result.semantic_score) }}%
+            </div>
+        </div>
+
+        <h3>Skill Match Score</h3>
+
+        <div class="progress-bar">
+            <div class="progress-fill"
+                 style="width: {{ result.skill_score }}%; background:green;">
+                {{ "%.2f"|format(result.skill_score) }}%
+            </div>
+        </div>
+
+        <h3>Overall Rating</h3>
+
+        <p class="{{ rating_class }}" style="font-size:22px;">
+            {{ rating }}
+        </p>
+
+    </div>
+
+    <!-- Strengths -->
+    <div class="card">
+
+        <h2>Strengths</h2>
+
+        <ul>
+            {% for skill in result.strengths %}
+                <li class="strength">✓ {{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <!-- Missing Skills -->
+    <div class="card">
+
+        <h2>Missing Skills</h2>
+
+        <ul>
+            {% for skill in result.missing_skills %}
+                <li class="missing">✗ {{ skill }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <!-- Recommendations -->
+    <div class="card">
+
+        <h2>Recommendations</h2>
+
+        <ul>
+            {% for item in recommendations %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    <div style="text-align:center; margin-top:30px;">
+
+    <a href="/">
+        <button class="analyze-btn">
+            Analyze Another Resume
+        </button>
+    </a>
+    <br><br>
+    <a href="/download">
+        <button class="analyze-btn">
+            Download PDF Report
+        </button>
+    </a>
+
+</div>
+
+</div>
+
+</body>
+</html>
