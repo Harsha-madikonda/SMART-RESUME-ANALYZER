@@ -78,6 +78,86 @@ def extract_pdf_text(pdf_file):
         text += page.extract_text() or ""
 
     return text
+def analyze_sections(resume_text):
+
+    lines = resume_text.lower().splitlines()
+
+    sections = {
+        "Education": False,
+        "Skills": False,
+        "Projects": False,
+        "Experience": False,
+        "Certifications": False,
+        "Achievements": False
+    }
+
+    for line in lines:
+
+        line = line.strip()
+
+        if "education" in line:
+            sections["Education"] = True
+
+        if ("technical skills" in line or
+            "skills" in line or
+            "programming languages" in line or
+            "frontend technologies" in line or
+            "backend technologies" in line
+        ):
+            sections["Skills"] = True
+
+        if "projects" in line:
+            sections["Projects"] = True
+
+        if (
+            line == "experience" or
+            "work experience" in line or
+            "professional experience" in line or
+            "internship experience" in line
+        ):
+            sections["Experience"] = True
+
+        if (
+            "certifications" in line or
+            "certificate" in line
+        ):
+            sections["Certifications"] = True
+
+        if (
+            "achievements" in line or
+            "achivements" in line
+        ):
+            sections["Achievements"] = True
+
+    return sections
+def generate_summary(result):
+
+    strengths = ", ".join(result["strengths"][:5])
+
+    missing = ", ".join(result["missing_skills"])
+
+    skill_score = result["skill_score"]
+
+    if skill_score >= 80:
+        level = "strong"
+    elif skill_score >= 60:
+        level = "moderate"
+    else:
+        level = "limited"
+
+    summary = (
+        f"The candidate demonstrates {level} alignment with the job description. "
+        f"Key strengths include {strengths}. "
+        f"The resume matches {skill_score:.0f}% of the required skills. "
+    )
+
+    if missing:
+        summary += (
+            f"Missing skills include {missing}. "
+            f"Learning these technologies can improve ATS performance."
+        )
+
+    return summary
 
 def analyze_resume(resume_text, jd_text):
     clean_resume=clean_text(resume_text)
@@ -93,6 +173,9 @@ def analyze_resume(resume_text, jd_text):
     jd_skill = extract_skills(jd_text)
 
     resume_skill = extract_skills(resume_text)
+    sections = analyze_sections(resume_text)
+    present_sections = sum(sections.values())
+    completeness_score = (present_sections / len(sections)) * 100
     miss_skill=[]
     #now compare jd_skills and resume_skills
     for skill in jd_skill:
@@ -117,5 +200,9 @@ def analyze_resume(resume_text, jd_text):
     "resume_skills": resume_skill,
     "strengths": strengths,
     "missing_skills": miss_skill,
-    "total_jd_skills":total_jd_skills}
+    "total_jd_skills": total_jd_skills,
+
+    "sections": sections,
+    "completeness_score": completeness_score
+}
     

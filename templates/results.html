@@ -3,9 +3,11 @@
 <head>
 
     <title>ATS Report</title>
-
     <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -13,12 +15,14 @@
 
 <div class="container">
 
-    <h1>SMART RESUME ANALYZER</h1>
+    <div class="header">
+        <h1>SMART RESUME ANALYZER</h1>
+    </div>
 
     <!-- ATS Scores -->
     <div class="card">
 
-        <h2>ATS Scores</h2>
+        <h2><i class="fa-solid fa-chart-line"></i> ATS Scores</h2>
 
         <h3>Semantic Match Score</h3>
 
@@ -45,13 +49,48 @@
         </p>
 
     </div>
+    <div class="card">
+        <h2><i class="fa-solid fa-brain"></i> AI Resume Summary</h2>
+        <p class="summary-text">
+            {{ summary }}
+        </p>
+    </div>
+    <div class="card">
+        <h2><i class="fa-solid fa-file-circle-check"></i> Resume Completeness</h2>
+        <h3>
+            Completeness Score:
+            {{ "%.2f"|format(result.completeness_score) }}%
+        </h3>
+        <ul>
+            {% for section, status in result.sections.items() %}
+            {% if status %}
+                <li class="strength">✓ {{ section }}</li>
+            {% else %}
+                <li class="missing">✗ {{ section }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="card">
+        <h2><i class="fa-solid fa-chart-pie"></i> Skill Coverage Visualization</h2>
+        <div style="width:350px; height:350px; margin:auto;">
+            <div class="chart-container">
+                <canvas id="skillChart"></canvas>
+            </div>
+        </div>
+        <p style="text-align:center; font-weight:bold; margin-top:15px;">
+            Matched Skills: {{ result.strengths|length }}
+            |
+            Missing Skills: {{ result.missing_skills|length }}
+        </p>
+    </div>
 
     <!-- Strengths -->
     <div class="card">
 
-        <h2>Strengths</h2>
+        <h2><i class="fa-solid fa-circle-check"></i> Strengths</h2>
 
-        <ul>
+        <ul class="skills-list">
             {% for skill in result.strengths %}
                 <li class="strength">✓ {{ skill }}</li>
             {% endfor %}
@@ -62,9 +101,9 @@
     <!-- Missing Skills -->
     <div class="card">
 
-        <h2>Missing Skills</h2>
+        <h2><i class="fa-solid fa-triangle-exclamation"></i> Missing Skills</h2>
 
-        <ul>
+        <ul class="skills-list">
             {% for skill in result.missing_skills %}
                 <li class="missing">✗ {{ skill }}</li>
             {% endfor %}
@@ -75,9 +114,9 @@
     <!-- Recommendations -->
     <div class="card">
 
-        <h2>Recommendations</h2>
+        <h2><i class="fa-solid fa-lightbulb"></i> Recommendations</h2>
 
-        <ul>
+        <ul class="skills-list">
             {% for item in recommendations %}
                 <li>{{ item }}</li>
             {% endfor %}
@@ -85,22 +124,71 @@
 
     </div>
     <div style="text-align:center; margin-top:30px;">
-
-    <a href="/">
-        <button class="analyze-btn">
-            Analyze Another Resume
-        </button>
-    </a>
-    <br><br>
-    <a href="/download">
-        <button class="analyze-btn">
-            Download PDF Report
-        </button>
-    </a>
-
-</div>
+        <a href="/">
+            <button class="analyze-btn">
+                Analyze Another Resume
+            </button>
+        </a>
+        <br><br>
+        <a href="/download">
+            <button class="analyze-btn">
+                Download PDF Report
+            </button>
+        </a>
+    </div>
 
 </div>
 
+<script>
+
+const matchedSkills = {{ result.strengths|length }};
+const missingSkills = {{ result.missing_skills|length }};
+
+const ctx = document.getElementById('skillChart');
+
+new Chart(ctx, {
+
+    type: 'pie',
+
+    data: {
+
+        labels: [
+            'Matched Skills',
+            'Missing Skills'
+        ],
+
+        datasets: [{
+
+            data: [
+                matchedSkills,
+                missingSkills
+            ],
+
+            backgroundColor: [
+                '#28a745',
+                '#dc3545'
+            ]
+
+        }]
+    },
+
+    options: {
+
+        responsive: true,
+        maintainAspectRatio: true,
+
+        plugins: {
+
+            legend: {
+                position: 'bottom'
+            }
+
+        }
+
+    }
+
+});
+
+</script>
 </body>
 </html>

@@ -2,103 +2,202 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 
 
-def create_report(result, recommendations, rating):
+from reportlab.platypus import (
+    SimpleDocTemplate,
+    Paragraph,
+    Spacer,
+    PageBreak
+)
+
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
+from reportlab.lib.enums import TA_CENTER
+
+from datetime import datetime
+
+
+def create_report(result, recommendations, rating, summary):
 
     pdf = SimpleDocTemplate("ATS_Report.pdf")
 
     styles = getSampleStyleSheet()
 
+    title_style = styles["Title"]
+    title_style.alignment = TA_CENTER
+    title_style.textColor = colors.black
+    heading_style = styles["Heading2"]
+    heading_style.textColor = colors.black
+    normal = styles["BodyText"]
+
     content = []
 
+    # ---------------------------------------------------
     # Title
+    # ---------------------------------------------------
+
     content.append(
         Paragraph(
             "SMART RESUME ANALYZER REPORT",
-            styles["Title"]
+            title_style
         )
     )
 
     content.append(Spacer(1, 12))
 
-    # Scores
+    content.append(
+        Paragraph(
+            f"Generated On: {datetime.now().strftime('%d-%m-%Y %H:%M')}",
+            normal
+        )
+    )
+
+    content.append(Spacer(1, 20))
+
+    # ---------------------------------------------------
+    # ATS Scores
+    # ---------------------------------------------------
+
+    content.append(
+        Paragraph("ATS Evaluation", heading_style)
+    )
 
     content.append(
         Paragraph(
-            f"Semantic Match Score: {result['semantic_score']:.2f}%",
-            styles["Normal"]
+            f"<b>Semantic Match Score:</b> "
+            f"{result['semantic_score']:.2f}%",
+            normal
         )
     )
 
     content.append(
         Paragraph(
-            f"Skill Match Score: {result['skill_score']:.2f}%",
-            styles["Normal"]
+            f"<b>Skill Match Score:</b> "
+            f"{result['skill_score']:.2f}%",
+            normal
         )
     )
 
     content.append(
         Paragraph(
-            f"Overall Rating: {rating}",
-            styles["Normal"]
+            f"<b>Overall Rating:</b> {rating}",
+            normal
         )
     )
 
-    content.append(Spacer(1, 12))
+    content.append(Spacer(1, 15))
 
+    # ---------------------------------------------------
+    # AI Summary
+    # ---------------------------------------------------
+
+    content.append(
+        Paragraph("AI Resume Summary", heading_style)
+    )
+
+    content.append(
+        Paragraph(summary, normal)
+    )
+
+    content.append(Spacer(1, 15))
+
+    # ---------------------------------------------------
+    # Resume Completeness
+    # ---------------------------------------------------
+
+    content.append(
+        Paragraph("Resume Completeness", heading_style)
+    )
+
+    content.append(
+        Paragraph(
+            f"<b>Completeness Score:</b> "
+            f"{result['completeness_score']:.2f}%",
+            normal
+        )
+    )
+
+    content.append(Spacer(1, 10))
+
+    for section, status in result["sections"].items():
+
+        mark = "✓" if status else "✗"
+
+        content.append(
+            Paragraph(
+                f"{mark} {section}",
+                normal
+            )
+        )
+
+    content.append(Spacer(1, 15))
+
+    # ---------------------------------------------------
     # Strengths
+    # ---------------------------------------------------
 
     content.append(
-        Paragraph(
-            "Strengths",
-            styles["Heading2"]
-        )
+        Paragraph("Strengths", heading_style)
     )
 
     for skill in result["strengths"]:
+
         content.append(
             Paragraph(
                 f"✓ {skill}",
-                styles["Normal"]
+                normal
             )
         )
 
-    content.append(Spacer(1, 12))
+    content.append(Spacer(1, 15))
 
+    # ---------------------------------------------------
     # Missing Skills
+    # ---------------------------------------------------
 
     content.append(
-        Paragraph(
-            "Missing Skills",
-            styles["Heading2"]
-        )
+        Paragraph("Missing Skills", heading_style)
     )
 
     for skill in result["missing_skills"]:
+
         content.append(
             Paragraph(
                 f"✗ {skill}",
-                styles["Normal"]
+                normal
             )
         )
 
-    content.append(Spacer(1, 12))
+    content.append(Spacer(1, 15))
 
+    # ---------------------------------------------------
     # Recommendations
+    # ---------------------------------------------------
+
+    content.append(
+        Paragraph("Recommendations", heading_style)
+    )
+
+    for rec in recommendations:
+
+        content.append(
+            Paragraph(
+                f"• {rec}",
+                normal
+            )
+        )
+
+    content.append(Spacer(1, 25))
+
+    # ---------------------------------------------------
+    # Footer
+    # ---------------------------------------------------
 
     content.append(
         Paragraph(
-            "Recommendations",
-            styles["Heading2"]
+            "<i>Generated by Smart Resume Analyzer</i>",
+            normal
         )
     )
-
-    for recommendation in recommendations:
-        content.append(
-            Paragraph(
-                f"• {recommendation}",
-                styles["Normal"]
-            )
-        )
 
     pdf.build(content)
 

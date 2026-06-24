@@ -1,88 +1,59 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
     <title>Smart Resume Analyzer</title>
 
-    <style>
-
-        body{
-            font-family: Arial, sans-serif;
-            background-color:#f4f6f9;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-        }
-
-        .card{
-            background:white;
-            padding:40px;
-            border-radius:12px;
-            box-shadow:0px 4px 12px rgba(0,0,0,0.1);
-            width:450px;
-        }
-
-        h1{
-            text-align:center;
-        }
-
-        label{
-            font-weight:bold;
-        }
-
-        input{
-            margin-top:10px;
-            margin-bottom:20px;
-            width:100%;
-        }
-
-        button{
-            width:100%;
-            padding:12px;
-            background:#007bff;
-            color:white;
-            border:none;
-            border-radius:8px;
-            cursor:pointer;
-            font-size:16px;
-        }
-
-        button:hover{
-            background:#0056b3;
-        }
-
-    </style>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
 <body>
 
-    <div class="card">
+    <div class="card upload-card">
+
+        <div class="hero-section">
+
+            <img
+                src="{{ url_for('static', filename='resume-hero.png') }}"
+                alt="Resume Analyzer"
+                class="hero-image">
+
+        </div>
 
         <h1>Smart Resume Analyzer</h1>
+
+        <p class="subtitle">
+            AI-Powered Resume Screening & ATS Score Checker
+        </p>
+
         <form method="POST" enctype="multipart/form-data">
 
-    <label>Upload Resume (PDF)</label>
-    <input type="file" name="resume" required>
+            <label>Upload Resume (PDF)</label>
+            <input type="file" name="resume" required>
 
-    <label>Upload Job Description File (PDF or TXT)</label>
-    <input type="file" name="jd_file">
+            <label>Upload Job Description File (PDF or TXT)</label>
+            <input type="file" name="jd_file">
 
-    <label>OR Paste Job Description</label>
-    <textarea
-        name="jd_text"
-        rows="8"
-        style="width:100%; margin-top:10px; margin-bottom:20px;"
-        placeholder="Paste Job Description here..."></textarea>
+            <label>OR Paste Job Description</label>
 
-    <button type="submit">
-        Analyze Resume
-    </button>
+            <textarea
+                name="jd_text"
+                rows="8"
+                placeholder="Paste Job Description here..."></textarea>
 
-</form>
+            <br><br>
+
+            <button type="submit" class="analyze-btn">
+                Analyze Resume
+            </button>
+
+        </form>
 
     </div>
 
 </body>
+
 </html>

@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, send_file
 from analyzer import extract_pdf_text
 from analyzer import analyze_resume
 from analyzer import skills_db
+from analyzer import generate_summary
 from pdf_generator import create_report
 
 app = Flask(__name__)
@@ -35,6 +36,7 @@ def home():
         
         
         result = analyze_resume(resume_text,jd_text )
+        summary = generate_summary(result)
         score = result["skill_score"]
         if score >= 90:
             rating = "Excellent Match"
@@ -51,10 +53,10 @@ def home():
         recommendations = []
         for skill in result["missing_skills"]:
             recommendations.append(skills_db.get(skill, f"Consider learning {skill}"))
-        create_report(result, recommendations, rating)
+        create_report(result, recommendations, rating, summary)
 
         return render_template("results.html",result=result,recommendations=recommendations,
-                               rating=rating,rating_class=rating_class)
+                               rating=rating,rating_class=rating_class, summary=summary)
     return render_template("index.html")
 
 
