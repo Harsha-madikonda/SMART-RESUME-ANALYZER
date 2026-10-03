@@ -1,58 +1,298 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Smart Resume Analyzer</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
 
-    <div class="card upload-card">
+    <!-- Navigation -->
+    <nav class="navbar">
 
-        <div class="hero-section">
+        <div class="logo">
+            🚀 Smart Resume Analyzer
+        </div>
 
-            <img
-                src="{{ url_for('static', filename='resume-hero.png') }}"
-                alt="Resume Analyzer"
-                class="hero-image">
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#resume">Resume Analyzer</a>
+            <a href="#practice">Practice</a>
+            <a href="#interview">Interview</a>
+            <a href="{{ url_for('career') }}">Career</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="dashboard-hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="badge">
+                AI-Powered Career Preparation
+            </span>
+
+            <h1>
+                Build Your Resume.
+                <br>
+                Prepare For Your Career.
+            </h1>
+
+            <p>
+                Analyze your resume, identify skill gaps,
+                practice tests and prepare for interviews
+                in one place.
+            </p>
 
         </div>
 
-        <h1>Smart Resume Analyzer</h1>
+        <img
+            src="{{ url_for('static', filename='resume-hero.png') }}"
+            alt="Resume Analyzer"
+            class="dashboard-image">
 
-        <p class="subtitle">
-            AI-Powered Resume Screening & ATS Score Checker
+    </section>
+
+
+    <!-- Main Features -->
+    <section class="features-section">
+
+        <h2>What would you like to do?</h2>
+
+        <p class="section-subtitle">
+            Choose a tool to start your career preparation.
         </p>
 
-        <form method="POST" enctype="multipart/form-data">
 
-            <label>Upload Resume (PDF)</label>
-            <input type="file" name="resume" required>
+        <div class="feature-grid">
 
-            <label>Upload Job Description File (PDF or TXT)</label>
-            <input type="file" name="jd_file">
 
-            <label>OR Paste Job Description</label>
+            <!-- Resume Analyzer -->
+            <div class="feature-card">
 
-            <textarea
-                name="jd_text"
-                rows="8"
-                placeholder="Paste Job Description here..."></textarea>
+                <div class="feature-icon">
+                    📊
+                </div>
 
-            <br><br>
+                <h3>Resume ATS Score</h3>
 
-            <button type="submit" class="analyze-btn">
-                Analyze Resume
-            </button>
+                <p>
+                    Compare your resume with a Job Description
+                    and discover your ATS compatibility.
+                </p>
 
-        </form>
+                <a href="#resume" class="feature-btn">
+                    Check Resume Score
+                </a>
 
-    </div>
+            </div>
+
+
+            <!-- Practice Tests -->
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    📝
+                </div>
+
+                <h3>Practice Tests</h3>
+
+                <p>
+                    Practice aptitude, programming and
+                    technical questions for placement preparation.
+                </p>
+
+                <a href="{{ url_for('practice') }}" class="feature-btn secondary">
+                    Start Practice
+                </a>
+
+            </div>
+
+
+            <!-- Mock Interview -->
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🎤
+                </div>
+
+                <h3>Mock Interview</h3>
+
+                <p>
+                    Practice HR and technical interview
+                    questions and improve your confidence.
+                </p>
+
+                <a href="{{ url_for('interview') }}" class="feature-btn secondary">
+                    Start Interview
+                </a>
+
+            </div>
+
+
+            <!-- Career Preparation -->
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🎯
+                </div>
+
+                <h3>Career Preparation</h3>
+
+                <p>
+                    Identify missing skills and create
+                    a personalized preparation plan.
+                </p>
+
+                <a href="{{ url_for('career') }}" class="feature-btn secondary">
+                    Explore
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Resume Analyzer -->
+    <section class="resume-section" id="resume">
+
+        <div class="resume-card">
+
+            <h2>📊 Analyze Your Resume</h2>
+
+            <p>
+                Upload your resume and provide the Job Description
+                to calculate your ATS score.
+            </p>
+
+
+            <form method="POST" enctype="multipart/form-data">
+
+
+                <label>
+                    Resume (PDF)
+                </label>
+
+                <input
+                    type="file"
+                    name="resume"
+                    accept=".pdf"
+                    required>
+
+
+                <label>
+                    Job Description File
+                    <span>(PDF or TXT)</span>
+                </label>
+
+                <input
+                    type="file"
+                    name="jd_file"
+                    accept=".pdf,.txt">
+
+
+                <div class="or-divider">
+                    OR
+                </div>
+
+
+                <label>
+                    Paste Job Description
+                </label>
+
+                <textarea
+                    name="jd_text"
+                    rows="8"
+                    placeholder="Paste the Job Description here..."></textarea>
+
+
+                <button
+                    type="submit"
+                    class="analyze-btn">
+
+                    🚀 Analyze Resume
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Practice Tests -->
+    <section class="practice-preview" id="practice">
+
+        <div class="practice-preview-card">
+
+            <div class="practice-preview-icon">
+                📝
+            </div>
+
+            <h2>Practice Tests</h2>
+
+            <p>
+                Test your knowledge with aptitude, programming,
+                DBMS, operating systems, computer networks and more.
+            </p>
+
+            <a href="{{ url_for('practice') }}" class="feature-btn secondary">
+                🚀 Start Practice Test
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Interview -->
+    <section class="coming-section" id="interview">
+
+        <div class="coming-card">
+
+            <div class="coming-icon">
+                🎤
+            </div>
+
+            <h2>Mock Interviews</h2>
+
+            <p>
+                Practice HR and technical interviews.
+                Voice and video interview features can be added later.
+            </p>
+
+            <a href="{{ url_for('interview') }}" class="feature-btn secondary">
+                🎤 Start Interview
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Smart Resume Analyzer
+        </p>
+
+        <p>
+            AI • NLP • Career Preparation
+        </p>
+
+    </footer>
 
 </body>
 

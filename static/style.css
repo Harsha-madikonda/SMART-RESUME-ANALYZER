@@ -155,3 +155,1412 @@ h1{
     color:#111827;
     margin-bottom:10px;
 }
+/* =========================================
+   DASHBOARD, NAVIGATION AND RESUME FORM
+========================================= */
+
+/* Shared page layout */
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    padding: 24px;
+    margin: 0;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+/* Navigation */
+.navbar {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 25px;
+    padding: 18px 25px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+    box-sizing: border-box;
+}
+
+/* Some inner pages wrap navbar content in .nav-container */
+.nav-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    color: #2563eb;
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+}
+
+.nav-links a {
+    color: #334155;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: #2563eb;
+}
+
+/* Dashboard hero */
+.dashboard-hero {
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 50px 45px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe, #eef2ff);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 20px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.dashboard-hero h1 {
+    text-align: left;
+    color: #0f172a;
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 0 0 18px;
+}
+
+.dashboard-hero p {
+    max-width: 550px;
+    color: #475569;
+    font-size: 17px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.dashboard-image {
+    display: block;
+    width: 360px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Dashboard feature section */
+.features-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 55px auto;
+    text-align: center;
+}
+
+.features-section h2 {
+    font-size: 30px;
+    line-height: 1.3;
+    color: #0f172a;
+    margin: 0 0 10px;
+}
+
+.section-subtitle {
+    color: #64748b;
+    margin: 0 0 30px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    margin: 35px auto;
+}
+
+.feature-card {
+    min-width: 0;
+    padding: 25px 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.12);
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: #0f172a;
+    margin: 0 0 10px;
+}
+
+.feature-card p {
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+    min-height: 80px;
+}
+
+/* Buttons used across the dashboard and inner pages */
+.feature-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 11px 16px;
+    border: none;
+    border-radius: 9px;
+    background: #2563eb;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.feature-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.feature-btn.secondary {
+    background: #7c3aed;
+}
+
+.feature-btn.secondary:hover {
+    background: #6d28d9;
+}
+
+/* Resume analyzer form */
+.resume-section {
+    width: 100%;
+    max-width: 850px;
+    margin: 55px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.resume-card {
+    width: 100%;
+    padding: 35px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+    box-sizing: border-box;
+}
+
+.resume-card h2 {
+    color: #0f172a;
+    margin: 0 0 12px;
+}
+
+.resume-card > p {
+    color: #64748b;
+    margin: 0 0 25px;
+    line-height: 1.7;
+}
+
+.resume-card label {
+    display: block;
+    margin: 18px 0 8px;
+    color: #334155;
+    font-weight: 600;
+}
+
+.resume-card label span {
+    color: #64748b;
+    font-weight: 400;
+}
+
+.resume-card input[type="file"],
+.resume-card textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #f8fafc;
+    color: #1e293b;
+    font: inherit;
+}
+
+.resume-card input[type="file"] {
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.resume-card textarea {
+    min-height: 140px;
+    margin-top: 8px;
+    resize: vertical;
+}
+
+.resume-card input:focus-visible,
+.resume-card textarea:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 1px;
+    border-color: #2563eb;
+}
+
+.or-divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #94a3b8;
+    font-weight: 700;
+}
+
+.resume-card .analyze-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+}
+
+/* Practice preview and interview callout on the dashboard */
+.practice-preview {
+    padding: 65px 20px;
+    background: #f1f5f9;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.practice-preview-card {
+    max-width: 900px;
+    margin: auto;
+    padding: 45px 30px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+    box-sizing: border-box;
+}
+
+.practice-preview-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.practice-preview-card h2 {
+    color: #0f172a;
+    font-size: 30px;
+    margin: 0 0 15px;
+}
+
+.practice-preview-card p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    color: #64748b;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.coming-section {
+    max-width: 900px;
+    margin: 55px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.coming-card {
+    padding: 40px 30px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+    box-sizing: border-box;
+}
+
+.coming-icon {
+    font-size: 50px;
+}
+
+.coming-card h2 {
+    color: #0f172a;
+}
+
+.coming-card p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+.coming-badge {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: #ede9fe;
+    color: #7c3aed;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+/* Footer */
+footer {
+    max-width: 1100px;
+    margin: 55px auto 0;
+    padding: 25px 15px;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+    color: #64748b;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 6px 0;
+}
+
+/* Dashboard tablet layout */
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 12px 18px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+    }
+
+    .dashboard-hero h1 {
+        text-align: center;
+        font-size: 36px;
+    }
+
+    .dashboard-hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .dashboard-image {
+        width: min(80%, 360px);
+    }
+}
+
+/* Dashboard mobile layout */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .navbar {
+        padding: 16px 12px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .logo {
+        font-size: 18px;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .nav-links {
+        gap: 10px 14px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .feature-card p {
+        min-height: 0;
+    }
+
+    .dashboard-hero {
+        padding: 32px 20px;
+    }
+
+    .dashboard-hero h1 {
+        font-size: 30px;
+    }
+
+    .dashboard-hero p {
+        font-size: 15px;
+    }
+
+    .dashboard-image {
+        width: 100%;
+    }
+
+    .resume-card {
+        padding: 22px;
+    }
+
+    .practice-preview {
+        padding: 35px 12px;
+    }
+
+    .practice-preview-card {
+        padding: 30px 18px;
+    }
+
+    .practice-preview-card h2 {
+        font-size: 26px;
+    }
+
+    .practice-preview-card p {
+        font-size: 15px;
+    }
+
+    .coming-card {
+        padding: 30px 20px;
+    }
+
+    footer {
+        margin-top: 35px;
+    }
+}
+
+/* =========================================
+   PRACTICE TEST
+========================================= */
+
+.practice-header {
+    max-width: 900px;
+    margin: 40px auto 20px;
+    padding: 50px;
+    text-align: center;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    border-radius: 25px;
+    box-sizing: border-box;
+}
+
+.practice-header h1 {
+    color: white;
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.practice-header p {
+    color: rgba(255,255,255,0.9);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.practice-selection {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.practice-card,
+.test-card,
+.result-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.practice-card h2,
+.result-card h2 {
+    color: #2563eb;
+    text-align: center;
+}
+
+.practice-description {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 30px;
+}
+
+.practice-card label {
+    display: block;
+    font-weight: bold;
+    color: #374151;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.practice-card select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 16px;
+    background: white;
+}
+
+.practice-card .feature-btn {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.test-area {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.test-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.test-top h2 {
+    color: #2563eb;
+}
+
+#timer {
+    background: #ede9fe;
+    color: #7c3aed;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#progress {
+    color: #6b7280;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.question-box {
+    margin-top: 20px;
+}
+
+.question-box h3 {
+    color: #111827;
+    line-height: 1.6;
+}
+
+.options {
+    margin-top: 25px;
+}
+
+.option {
+    display: block;
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option:hover {
+    background: #f8fafc;
+    border-color: #2563eb;
+}
+
+.option input {
+    margin-right: 10px;
+}
+
+.test-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.submit-test-btn {
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-test-btn:hover {
+    background: #15803d;
+}
+
+.result-area {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.result-card {
+    text-align: center;
+}
+
+.result-icon {
+    font-size: 55px;
+}
+
+.final-score {
+    font-size: 42px;
+    font-weight: bold;
+    color: #2563eb;
+    margin-top: 20px;
+}
+
+.percentage {
+    font-size: 24px;
+    color: #16a34a;
+    font-weight: bold;
+    margin: 10px 0 30px;
+}
+
+.answer-review {
+    text-align: left;
+    border-top: 1px solid #e5e7eb;
+    padding: 20px 0;
+}
+
+.answer-review h3 {
+    color: #111827;
+    line-height: 1.5;
+}
+
+.answer-review p {
+    color: #4b5563;
+}
+
+.explanation {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+
+    .practice-header {
+        padding: 35px 20px;
+    }
+
+    .practice-header h1 {
+        font-size: 32px;
+    }
+
+    .practice-card,
+    .test-card,
+    .result-card {
+        padding: 25px;
+    }
+
+    .test-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .test-buttons {
+        flex-direction: column;
+    }
+
+}
+/* =========================================================
+   PRACTICE TEST PREVIEW
+   ========================================================= */
+
+.practice-preview {
+    padding: 70px 20px;
+    background: #f8f9fc;
+    text-align: center;
+}
+
+.practice-preview-card {
+    max-width: 900px;
+    margin: auto;
+    padding: 50px 30px;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.practice-preview-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.practice-preview-card h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #111827;
+}
+
+.practice-preview-card p {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+/* =========================================================
+   MOCK INTERVIEW - PROFESSIONAL UI
+   ========================================================= */
+
+/* Interview Hero */
+
+.interview-hero {
+    padding: 70px 20px 55px;
+    text-align: center;
+}
+
+.interview-hero-content {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.interview-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.interview-hero h1 {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.interview-hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+
+/* Main Interview Container */
+
+.interview-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+
+/* Setup Card */
+
+.interview-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.interview-card h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.interview-card p {
+    margin-bottom: 28px;
+    line-height: 1.6;
+    opacity: 0.75;
+}
+
+
+/* Interview Form */
+
+.interview-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.interview-form .feature-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #ffffff;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/* Interview Question Card */
+
+.interview-question-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.09);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* Top Bar */
+
+.interview-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.interview-role,
+.interview-difficulty {
+    display: inline-block;
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 7px;
+}
+
+.interview-role {
+    background: #eef4ff;
+}
+
+.interview-difficulty {
+    background: #f3f3f3;
+}
+
+.interview-timer {
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* Question Progress */
+
+.interview-progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.interview-progress-bar {
+    width: 100%;
+    height: 9px;
+    background: #e9e9e9;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.interview-progress-fill {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+
+/* Interview Stage */
+
+.interview-stage {
+    display: inline-block;
+    padding: 9px 15px;
+    border-radius: 20px;
+    background: #f1f5f9;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+
+/* Question */
+
+.question-section {
+    margin-bottom: 28px;
+}
+
+.question-section h2 {
+    font-size: 26px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* Answer */
+
+.answer-section {
+    margin-top: 10px;
+}
+
+.answer-section label {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.answer-section textarea {
+    width: 100%;
+    min-height: 190px;
+    box-sizing: border-box;
+    resize: vertical;
+    padding: 16px;
+    border: 1px solid #d8d8d8;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.6;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.answer-section textarea:focus {
+    border-color: #6366f1;
+}
+
+.answer-hint {
+    margin-top: 9px;
+    font-size: 13px;
+    opacity: 0.65;
+}
+
+
+/* Action Button */
+
+.interview-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 22px;
+}
+
+.interview-actions .feature-btn {
+    min-width: 180px;
+}
+
+
+/* Mobile Responsive */
+
+@media (max-width: 700px) {
+
+    .interview-hero {
+        padding: 50px 15px 35px;
+    }
+
+    .interview-hero h1 {
+        font-size: 32px;
+    }
+
+    .interview-hero p {
+        font-size: 16px;
+    }
+
+    .interview-form {
+        grid-template-columns: 1fr;
+    }
+
+    .interview-form .feature-btn {
+        grid-column: auto;
+    }
+
+    .interview-card,
+    .interview-question-card {
+        padding: 22px;
+    }
+
+    .interview-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .interview-timer {
+        margin-top: 5px;
+    }
+
+    .question-section h2 {
+        font-size: 21px;
+    }
+
+    .answer-section textarea {
+        min-height: 160px;
+    }
+
+    .interview-actions {
+        justify-content: stretch;
+    }
+
+    .interview-actions .feature-btn {
+        width: 100%;
+    }
+}
+/* =========================================================
+   MOCK INTERVIEW RESULTS
+   ========================================================= */
+
+.interview-result-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 40px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.09);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+/* Result Header */
+
+.result-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.result-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.result-header h1 {
+    margin: 0 0 10px;
+    font-size: 34px;
+}
+
+.result-header p {
+    margin: 0;
+    opacity: 0.7;
+}
+
+
+/* Overall Score */
+
+.overall-score {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    border: 10px solid #6366f1;
+}
+
+.score-circle span {
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.score-circle small {
+    font-size: 14px;
+    opacity: 0.6;
+}
+
+.overall-score h2 {
+    margin: 0;
+}
+
+
+/* Result Statistics */
+
+.result-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.result-stat {
+    padding: 18px;
+    border-radius: 14px;
+    background: #f7f7f8;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.result-stat-icon {
+    font-size: 28px;
+}
+
+.result-stat strong {
+    display: block;
+    font-size: 20px;
+}
+
+.result-stat small {
+    display: block;
+    margin-top: 4px;
+    opacity: 0.65;
+}
+
+
+/* Result Sections */
+
+.result-section {
+    margin-top: 30px;
+}
+
+.result-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.result-section ul {
+    padding-left: 20px;
+}
+
+.result-section li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+
+/* Question Results */
+
+.question-result-item {
+    padding: 18px;
+    margin-bottom: 12px;
+
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    background: #fafafa;
+}
+
+.question-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.question-result-header span {
+    font-weight: 700;
+}
+
+.question-result-item p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.question-result-item small {
+    opacity: 0.65;
+}
+
+
+/* Result Actions */
+
+.result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .interview-result-card {
+        padding: 22px;
+    }
+
+    .result-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .result-actions {
+        flex-direction: column;
+    }
+
+    .result-actions .feature-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .result-header h1 {
+        font-size: 28px;
+    }
+
+}
+/* =========================================================
+   ANSWER-BY-ANSWER INTERVIEW FEEDBACK
+   ========================================================= */
+
+.answer-feedback {
+    margin-top: 15px;
+}
+
+.answer-feedback p {
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+.candidate-answer {
+    background: #f3f4f6;
+    border-left: 4px solid #6366f1;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin: 8px 0 18px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.question-result-item strong {
+    font-weight: 700;
+}
+
+/* =========================================
+   DESKTOP DISPLAY IMPROVEMENTS
+   ========================================= */
+
+@media (min-width: 901px) {
+
+    body {
+        padding: 24px 3vw;
+        box-sizing: border-box;
+    }
+
+    .navbar,
+    .dashboard-hero,
+    .features-section {
+        max-width: 1500px;
+        width: 100%;
+    }
+
+    .navbar {
+        padding: 22px 32px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+    }
+
+    .dashboard-hero {
+        padding: 70px 65px;
+        gap: 55px;
+    }
+
+    .dashboard-hero h1 {
+        font-size: clamp(42px, 3.2vw, 56px);
+    }
+
+    .dashboard-image {
+        width: min(40%, 440px);
+        height: auto;
+    }
+
+    .features-section h2 {
+        font-size: 34px;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .feature-card {
+        padding: 32px 24px;
+    }
+
+    .feature-card h3 {
+        font-size: 21px;
+    }
+
+    .feature-card p {
+        font-size: 16px;
+    }
+
+    .resume-section {
+        max-width: 1100px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .resume-card {
+        padding: 48px;
+    }
+}
+/* Make pages larger on laptops / desktops */
+@media (min-width: 1024px) {
+    body {
+        zoom: 1;
+    }
+}

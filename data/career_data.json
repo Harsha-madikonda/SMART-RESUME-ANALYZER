@@ -1,0 +1,99 @@
+{
+  "fullstack": {
+    "title": "Full Stack Developer",
+    "icon": "🌐",
+    "description": "Build complete web applications: frontend, backend and deployment.",
+    "practice_category": "javascript",
+    "interview_role": "fullstack",
+    "skills": [
+      {"name": "HTML", "aliases": ["html5"]},
+      {"name": "CSS", "aliases": ["css3", "tailwind", "bootstrap"]},
+      {"name": "JavaScript", "aliases": ["js", "es6", "typescript"]},
+      {"name": "React", "aliases": ["react.js", "reactjs", "next.js"]},
+      {"name": "Node.js", "aliases": ["node", "nodejs"]},
+      {"name": "Express", "aliases": ["express.js", "expressjs"]},
+      {"name": "MongoDB", "aliases": ["mongoose", "nosql"]},
+      {"name": "SQL", "aliases": ["mysql", "postgresql", "postgres", "sqlite"]},
+      {"name": "REST APIs", "aliases": ["rest api", "restful", "rest", "api development"]},
+      {"name": "Git", "aliases": ["github", "gitlab"]},
+      {"name": "Docker", "aliases": ["containers", "containerization"]},
+      {"name": "AWS", "aliases": ["amazon web services", "ec2", "s3", "azure", "gcp"]}
+    ],
+    "roadmap": [
+      {"name": "HTML & CSS", "skill": "CSS"},
+      {"name": "JavaScript", "skill": "JavaScript"},
+      {"name": "React", "skill": "React"},
+      {"name": "Node.js", "skill": "Node.js"},
+      {"name": "Express", "skill": "Express"},
+      {"name": "MongoDB / SQL", "skill": "MongoDB"},
+      {"name": "REST APIs", "skill": "REST APIs"},
+      {"name": "Git", "skill": "Git"},
+      {"name": "Docker", "skill": "Docker"},
+      {"name": "Deployment (AWS)", "skill": "AWS"}
+    ]
+  },
+
+  "aiml": {
+    "title": "AI/ML Engineer",
+    "icon": "🤖",
+    "description": "Design, train and deploy machine learning and AI models.",
+    "practice_category": "python",
+    "interview_role": "aiml",
+    "skills": [
+      {"name": "Python", "aliases": ["python3"]},
+      {"name": "NumPy", "aliases": []},
+      {"name": "Pandas", "aliases": []},
+      {"name": "Machine Learning", "aliases": ["ml", "supervised learning", "regression", "classification"]},
+      {"name": "Scikit-learn", "aliases": ["sklearn", "scikit learn"]},
+      {"name": "Deep Learning", "aliases": ["neural network", "neural networks", "cnn", "rnn", "lstm"]},
+      {"name": "TensorFlow", "aliases": ["keras"]},
+      {"name": "PyTorch", "aliases": ["torch"]},
+      {"name": "NLP", "aliases": ["natural language processing", "nltk", "spacy", "transformers", "llm"]},
+      {"name": "SQL", "aliases": ["mysql", "postgresql"]},
+      {"name": "Git", "aliases": ["github"]},
+      {"name": "Docker", "aliases": ["mlops", "containers"]}
+    ],
+    "roadmap": [
+      {"name": "Python", "skill": "Python"},
+      {"name": "NumPy & Pandas", "skill": "Pandas"},
+      {"name": "Machine Learning", "skill": "Machine Learning"},
+      {"name": "Scikit-learn", "skill": "Scikit-learn"},
+      {"name": "Deep Learning", "skill": "Deep Learning"},
+      {"name": "TensorFlow / PyTorch", "skill": "TensorFlow"},
+      {"name": "NLP", "skill": "NLP"},
+      {"name": "Deploy Models (Docker)", "skill": "Docker"}
+    ]
+  },
+
+  "software": {
+    "title": "Software Engineer",
+    "icon": "💻",
+    "description": "Strong fundamentals in programming, data structures and system design.",
+    "practice_category": "python",
+    "interview_role": "software",
+    "skills": [
+      {"name": "Data Structures", "aliases": ["dsa", "linked list", "binary tree", "stack", "queue", "hash map"]},
+      {"name": "Algorithms", "aliases": ["sorting", "searching", "dynamic programming", "recursion"]},
+      {"name": "OOP", "aliases": ["object oriented", "object-oriented", "oops"]},
+      {"name": "Java", "aliases": []},
+      {"name": "Python", "aliases": []},
+      {"name": "C++", "aliases": ["cpp"]},
+      {"name": "SQL", "aliases": ["mysql", "postgresql", "dbms"]},
+      {"name": "Operating Systems", "aliases": ["operating system", "os concepts"]},
+      {"name": "Computer Networks", "aliases": ["networking", "tcp/ip", "http"]},
+      {"name": "System Design", "aliases": ["low level design", "high level design", "microservices"]},
+      {"name": "Git", "aliases": ["github"]},
+      {"name": "Testing", "aliases": ["unit testing", "pytest", "junit", "jest"]}
+    ],
+    "roadmap": [
+      {"name": "Programming Language", "skill": "Python"},
+      {"name": "OOP", "skill": "OOP"},
+      {"name": "Data Structures", "skill": "Data Structures"},
+      {"name": "Algorithms", "skill": "Algorithms"},
+      {"name": "SQL & DBMS", "skill": "SQL"},
+      {"name": "OS & Networks", "skill": "Operating Systems"},
+      {"name": "Git & Testing", "skill": "Testing"},
+      {"name": "System Design", "skill": "System Design"}
+    ]
+  }
+}

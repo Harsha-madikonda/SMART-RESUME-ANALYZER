@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Practice Tests | Smart Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🚀 Smart Resume Analyzer
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#resume">Resume Analyzer</a>
+            <a href="/practice">Practice</a>
+            <a href="/#interview">Interview</a>
+            <a href="{{ url_for('career') }}">Career</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Practice Header -->
+    <section class="practice-header">
+
+        <span class="badge">
+            📝 Placement Preparation
+        </span>
+
+        <h1>Practice Tests</h1>
+
+        <p>
+            Test your knowledge with questions designed
+            for placement and technical preparation.
+        </p>
+
+    </section>
+
+
+    <!-- Test Selection -->
+    <section class="practice-selection">
+
+        <div class="practice-card">
+
+            <h2>Choose Your Test</h2>
+
+            <p class="practice-description">
+                Select a subject and difficulty level to begin.
+            </p>
+
+
+            <!-- Category -->
+            <label for="category">
+                Select Category
+            </label>
+
+            <select id="category">
+
+                <option value="python">
+                    Python
+                </option>
+
+                <option value="aptitude">
+                    Aptitude
+                </option>
+
+                <option value="programming">
+                    Java
+                </option>
+
+                <option value="dbms">
+                    DBMS
+                </option>
+
+                <option value="os">
+                    Operating Systems
+                </option>
+
+                <option value="cn">
+                    Computer Networks
+                </option>
+
+            </select>
+
+
+            <!-- Difficulty -->
+            <label for="difficulty">
+                Select Difficulty
+            </label>
+
+            <select id="difficulty">
+
+                <option value="easy">
+                    Easy
+                </option>
+
+                <option value="medium">
+                    Medium
+                </option>
+
+                <option value="hard">
+                    Hard
+                </option>
+
+            </select>
+
+
+            <button
+                class="feature-btn"
+                onclick="startTest()">
+
+                🚀 Start Test
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Test Area -->
+    <section
+        id="test-area"
+        class="test-area"
+        style="display:none;">
+
+        <div class="test-card">
+
+            <div class="test-top">
+
+                <h2 id="test-title">
+                    Practice Test
+                </h2>
+
+                <div id="timer">
+                    ⏱️ 05:00
+                </div>
+
+            </div>
+
+
+            <div id="progress">
+                Question 1
+            </div>
+
+
+            <div id="question-container">
+
+            </div>
+
+
+            <div class="test-buttons">
+
+                <button
+                    class="feature-btn"
+                    onclick="nextQuestion()">
+
+                    Next
+
+                </button>
+
+                <button
+                    class="submit-test-btn"
+                    onclick="submitTest()">
+
+                    Submit Test
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Result -->
+    <section
+        id="result-area"
+        class="result-area"
+        style="display:none;">
+
+        <div class="result-card">
+
+            <div class="result-icon">
+                🎉
+            </div>
+
+            <h2>Test Completed!</h2>
+
+            <div id="score"></div>
+
+            <div id="result-details"></div>
+
+            <button
+                class="feature-btn"
+                onclick="location.reload()">
+
+                🔄 Try Again
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+<script>
+
+let questions = [];
+let currentQuestion = 0;
+let userAnswers = [];
+let timer;
+let timeLeft = 300;
+
+
+// Start test
+async function startTest() {
+
+    const category =
+        document.getElementById("category").value;
+
+    const difficulty =
+        document.getElementById("difficulty").value;
+
+
+    try {
+
+        const response = await fetch(
+            `/api/practice?category=${category}&difficulty=${difficulty}`
+        );
+
+        const data = await response.json();
+
+
+        if (!data.success) {
+
+            alert(data.message);
+            return;
+
+        }
+
+
+        questions = data.questions;
+
+        currentQuestion = 0;
+
+        userAnswers =
+            new Array(questions.length).fill(null);
+
+
+        document.querySelector(
+            ".practice-selection"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "test-area"
+        ).style.display = "block";
+
+
+        document.getElementById(
+            "test-title"
+        ).innerText =
+            category.toUpperCase() + " Practice Test";
+
+
+        showQuestion();
+
+        startTimer();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to start the test. Please try again."
+        );
+
+    }
+
+}
+
+
+// Display question
+function showQuestion() {
+
+    const question =
+        questions[currentQuestion];
+
+
+    document.getElementById(
+        "progress"
+    ).innerText =
+        `Question ${currentQuestion + 1} of ${questions.length}`;
+
+
+    let html = `
+
+        <div class="question-box">
+
+            <h3>
+                ${question.question}
+            </h3>
+
+            <div class="options">
+    `;
+
+
+    question.options.forEach(
+        (option, index) => {
+
+            const checked =
+                userAnswers[currentQuestion] === option
+                    ? "checked"
+                    : "";
+
+
+            html += `
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="${option}"
+                        ${checked}
+                        onchange="saveAnswer(this.value)">
+
+                    <span>
+                        ${option}
+                    </span>
+
+                </label>
+
+            `;
+
+        }
+    );
+
+
+    html += `
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "question-container"
+    ).innerHTML = html;
+
+
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
+
+        document.querySelector(
+            ".test-buttons .feature-btn"
+        ).style.display = "none";
+
+    }
+
+    else {
+
+        document.querySelector(
+            ".test-buttons .feature-btn"
+        ).style.display = "inline-block";
+
+    }
+
+}
+
+
+// Save answer
+function saveAnswer(answer) {
+
+    userAnswers[currentQuestion] =
+        answer;
+
+}
+
+
+// Next question
+function nextQuestion() {
+
+    if (
+        currentQuestion <
+        questions.length - 1
+    ) {
+
+        currentQuestion++;
+
+        showQuestion();
+
+    }
+
+}
+
+
+// Timer
+function startTimer() {
+
+    timeLeft = 300;
+
+
+    timer =
+        setInterval(() => {
+
+            timeLeft--;
+
+
+            const minutes =
+                Math.floor(timeLeft / 60);
+
+            const seconds =
+                timeLeft % 60;
+
+
+            document.getElementById(
+                "timer"
+            ).innerText =
+                `⏱️ ${minutes}:${seconds
+                    .toString()
+                    .padStart(2, "0")}`;
+
+
+            if (timeLeft <= 0) {
+
+                clearInterval(timer);
+
+                submitTest();
+
+            }
+
+        }, 1000);
+
+}
+
+
+// Submit test
+function submitTest() {
+
+    clearInterval(timer);
+
+
+    let score = 0;
+
+
+    questions.forEach(
+        (question, index) => {
+
+            if (
+                userAnswers[index] ===
+                question.answer
+            ) {
+
+                score++;
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "test-area"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "result-area"
+    ).style.display = "block";
+
+
+    const percentage =
+        Math.round(
+            (score / questions.length) * 100
+        );
+
+
+    document.getElementById(
+        "score"
+    ).innerHTML = `
+
+        <div class="final-score">
+            ${score} / ${questions.length}
+        </div>
+
+        <div class="percentage">
+            ${percentage}%
+        </div>
+
+    `;
+
+
+    let details = "";
+
+
+    questions.forEach(
+        (question, index) => {
+
+            const correct =
+                userAnswers[index] ===
+                question.answer;
+
+
+            details += `
+
+                <div class="answer-review">
+
+                    <h3>
+                        ${index + 1}.
+                        ${question.question}
+                    </h3>
+
+                    <p>
+                        Your answer:
+                        <strong>
+                            ${userAnswers[index] || "Not answered"}
+                        </strong>
+                    </p>
+
+                    <p>
+                        Correct answer:
+                        <strong>
+                            ${question.answer}
+                        </strong>
+                    </p>
+
+                    <p>
+                        ${correct ? "✅ Correct" : "❌ Incorrect"}
+                    </p>
+
+                    <p class="explanation">
+                        💡 ${question.explanation}
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    document.getElementById(
+        "result-details"
+    ).innerHTML = details;
+
+}
+
+</script>
+
+
+</body>
+
+</html>

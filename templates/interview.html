@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mock Interview | Smart Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+
+            <div class="logo">
+                🚀 Smart Resume Analyzer
+            </div>
+
+            <div class="nav-links">
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('home') }}#analyzer">
+                    Resume Analyzer
+                </a>
+                <a href="{{ url_for('practice') }}">
+                    Practice
+                </a>
+                <a href="{{ url_for('interview') }}">
+                    Interview
+                </a>
+                <a href="{{ url_for('career') }}">Career</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- Interview Header -->
+    <section class="interview-hero">
+
+        <div class="interview-hero-content">
+
+            <div class="interview-icon">
+                🎤
+            </div>
+
+            <h1>Mock Interview</h1>
+
+            <p>
+                Practice real interview questions and improve
+                your technical and communication skills.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Interview Setup -->
+    <section class="interview-container">
+
+        <div class="interview-card">
+
+            <h2>🚀 Start Your Interview</h2>
+
+            <p>
+                Select your target job role and difficulty level
+                to begin your mock interview.
+            </p>
+
+
+            <div class="interview-form">
+
+                <!-- Job Role -->
+                <div class="form-group">
+
+                    <label for="role">
+                        💼 Select Job Role
+                    </label>
+
+                    <select id="role">
+
+                        <option value="fullstack">
+                            Full Stack Developer
+                        </option>
+
+                        <option value="aiml">
+                            AI / ML Engineer
+                        </option>
+
+                        <option value="software">
+                            Software Engineer
+                        </option>
+
+                        <option value="python">
+                            Python Developer
+                        </option>
+
+                        <option value="java">
+                            Java Developer
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Difficulty -->
+                <div class="form-group">
+
+                    <label for="difficulty">
+                        📊 Difficulty
+                    </label>
+
+                    <select id="difficulty">
+
+                        <option value="easy">
+                            Easy
+                        </option>
+
+                        <option value="medium">
+                            Medium
+                        </option>
+
+                        <option value="hard">
+                            Hard
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Start Button -->
+                <button
+                    type="button"
+                    class="feature-btn primary"
+                    onclick="startInterview()">
+
+                    🎤 Start Mock Interview
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Interview Area -->
+<section class="interview-container" id="interviewArea" style="display: none;">
+
+    <div class="interview-question-card">
+
+        <!-- Interview Top Bar -->
+        <div class="interview-topbar">
+
+            <div>
+                <span class="interview-role" id="interviewRole">
+                    💼 Full Stack Developer
+                </span>
+
+                <span class="interview-difficulty" id="interviewDifficulty">
+                    Easy
+                </span>
+            </div>
+
+            <div class="interview-timer" id="timer">
+                ⏱️ 05:00
+            </div>
+
+        </div>
+
+        <!-- Progress Information -->
+        <div class="interview-progress-info">
+
+            <span id="questionNumber">
+                Question 1 / 10
+            </span>
+
+            <span id="progressPercentage">
+                0%
+            </span>
+
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="interview-progress-bar">
+
+            <div
+                class="interview-progress-fill"
+                id="progressFill">
+            </div>
+
+        </div>
+
+        <!-- Interview Stage -->
+        <div class="interview-stage" id="interviewStage">
+            🎤 Introduction
+        </div>
+
+        <!-- Question -->
+        <div class="question-section">
+
+            <h2 id="questionText">
+                Interview question will appear here.
+            </h2>
+
+        </div>
+
+        <!-- Answer -->
+        <div class="answer-section">
+
+            <label for="answer">
+                📝 Your Answer
+            </label>
+
+            <textarea
+                id="answer"
+                placeholder="Type your answer here. Try to explain your answer clearly and confidently..."
+            ></textarea>
+
+            <div class="answer-hint">
+                💡 Tip: Structure your answer clearly and include examples when possible.
+            </div>
+
+        </div>
+
+        <!-- Next Button -->
+        <div class="interview-actions">
+
+            <button
+                type="button"
+                class="feature-btn primary"
+                onclick="nextQuestion()">
+
+                Next Question →
+                
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+</section>
+<!-- Interview Result -->
+<section class="interview-container" id="resultArea" style="display: none;">
+
+    <div class="interview-result-card">
+
+        <div class="result-header">
+            <div class="result-icon">🎉</div>
+
+            <h1>Interview Completed!</h1>
+
+            <p>Your mock interview has been evaluated.</p>
+        </div>
+
+
+        <!-- Overall Score -->
+        <div class="overall-score">
+
+            <div class="score-circle">
+
+                <span id="overallScore">
+                    0
+                </span>
+
+                <small>/ 100</small>
+
+            </div>
+
+            <h2 id="performanceLevel">
+                Performance
+            </h2>
+
+        </div>
+
+
+        <!-- Summary -->
+        <div class="result-summary">
+
+            <div class="result-stat">
+                <span class="result-stat-icon">📝</span>
+
+                <div>
+                    <strong id="answeredCount">
+                        0
+                    </strong>
+
+                    <small>
+                        Questions Answered
+                    </small>
+                </div>
+            </div>
+
+
+            <div class="result-stat">
+                <span class="result-stat-icon">💡</span>
+
+                <div>
+                    <strong id="keywordScore">
+                        0%
+                    </strong>
+
+                    <small>
+                        Keyword Coverage
+                    </small>
+                </div>
+            </div>
+
+
+            <div class="result-stat">
+                <span class="result-stat-icon">⏱️</span>
+
+                <div>
+                    <strong id="timeUsed">
+                        00:00
+                    </strong>
+
+                    <small>
+                        Time Used
+                    </small>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Strengths -->
+        <div class="result-section">
+
+            <h3>✅ Strengths</h3>
+
+            <ul id="strengthsList"></ul>
+
+        </div>
+
+
+        <!-- Improvements -->
+        <div class="result-section">
+
+            <h3>📈 Areas to Improve</h3>
+
+            <ul id="improvementsList"></ul>
+
+        </div>
+
+
+        <!-- Question Results -->
+        <div class="result-section">
+
+            <h3>📊 Question-wise Performance</h3>
+
+            <div id="questionResults"></div>
+
+        </div>
+
+
+        <!-- Actions -->
+        <div class="result-actions">
+
+            <button
+                type="button"
+                class="feature-btn primary"
+                onclick="restartInterview()">
+
+                🔄 Try Again
+
+            </button>
+
+            <a
+                href="{{ url_for('home') }}"
+                class="feature-btn">
+
+                🏠 Back to Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        let questions = [];
+        let currentQuestion = 0;
+        let answers = [];
+
+        let totalTime = 300;
+        let timerInterval;
+        let interviewFinished = false;
+
+
+        async function startInterview() {
+
+    const role =
+        document.getElementById("role").value;
+
+    const difficulty =
+        document.getElementById("difficulty").value;
+    
+    
+
+    const roleNames = {
+    fullstack: "💼 Full Stack Developer",
+    aiml: "🤖 AI / ML Engineer",
+    software: "💻 Software Engineer",
+    python: "🐍 Python Developer",
+    java: "☕ Java Developer"
+};
+
+document.getElementById("interviewRole").textContent =
+    roleNames[role] || role;
+
+document.getElementById("interviewDifficulty").textContent =
+    difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+
+    try {
+
+        const response = await fetch(
+            `/api/interview?role=${role}&difficulty=${difficulty}`
+        );
+
+        const data = await response.json();
+
+        if (!data.success) {
+
+            alert(data.message);
+            return;
+
+        }
+
+        questions = data.questions;
+        interviewFinished = false;
+
+        currentQuestion = 0;
+        answers = [];
+
+        document.getElementById("interviewArea")
+            .style.display = "block";
+
+        showQuestion();
+
+        startTimer();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Unable to load interview questions."
+        );
+
+    }
+}
+
+
+        function showQuestion() {
+
+    const question = questions[currentQuestion];
+
+    // Question number
+    const questionNumber = currentQuestion + 1;
+    const totalQuestions = questions.length;
+
+    document.getElementById("questionNumber").textContent =
+        "Question " + questionNumber + " / " + totalQuestions;
+
+
+    // Question text
+    document.getElementById("questionText").textContent =
+        question.question;
+
+
+    // Progress percentage
+    const progress = Math.round(
+        (questionNumber / totalQuestions) * 100
+    );
+
+    document.getElementById("progressPercentage").textContent =
+        progress + "%";
+
+
+    // Progress bar
+    document.getElementById("progressFill").style.width =
+        progress + "%";
+
+
+    // Interview stage
+    const stageNames = {
+        introduction: "🎤 Introduction",
+        resume: "📄 Resume Discussion",
+        hr: "👤 HR Interview",
+        project: "🚀 Project Discussion",
+        technical: "💻 Technical Interview",
+        behavioral: "🧠 Behavioral Interview",
+        closing: "🤝 Closing"
+    };
+
+    const stage =
+        stageNames[question.type] || "🎤 Interview";
+
+    document.getElementById("interviewStage").textContent =
+        stage;
+
+
+    // Clear previous answer
+    document.getElementById("answer").value = "";
+
+
+    // Change button text on final question
+    const nextButton =
+        document.querySelector(".interview-actions .feature-btn");
+
+    if (questionNumber === totalQuestions) {
+
+        nextButton.textContent = "🎉 Finish Interview";
+
+    } else {
+
+        nextButton.textContent = "Next Question →";
+
+    }
+}
+
+
+        function nextQuestion() {
+            if (interviewFinished || questions.length === 0) {
+    return;
+}
+
+            const answer =
+                document.getElementById("answer").value.trim();
+
+
+            answers.push(answer);
+
+
+            currentQuestion++;
+
+
+            if (currentQuestion >= questions.length) {
+
+                finishInterview();
+
+                return;
+            }
+
+
+            showQuestion();
+
+        }
+
+
+        function startTimer() {
+
+            clearInterval(timerInterval);
+
+            totalTime = 300;
+
+            updateTimer();
+
+
+            timerInterval =
+                setInterval(function () {
+
+                    totalTime--;
+
+                    updateTimer();
+
+
+                    if (totalTime <= 0) {
+
+    clearInterval(timerInterval);
+
+    const currentAnswer =
+        document.getElementById("answer").value.trim();
+
+    answers.push(currentAnswer);
+
+    finishInterview();
+
+}
+
+                }, 1000);
+
+        }
+
+
+        function updateTimer() {
+
+            const minutes =
+                Math.floor(totalTime / 60);
+
+            const seconds =
+                totalTime % 60;
+
+
+            document.getElementById("timer")
+                .textContent =
+                "⏱️ " +
+                String(minutes).padStart(2, "0") +
+                ":" +
+                String(seconds).padStart(2, "0");
+
+        }
+
+
+        function finishInterview() {
+
+if (interviewFinished) {
+    return;
+}
+
+interviewFinished = true;
+clearInterval(timerInterval);
+
+    let totalScore = 0;
+    let totalKeywordMatches = 0;
+    let totalKeywords = 0;
+
+    const questionResults = [];
+
+    questions.forEach(function(question, index) {
+
+        const answer = answers[index] || "";
+        const answerLower = answer.toLowerCase().trim();
+
+        const keywords = question.keywords || [];
+
+        /*
+         * -----------------------------------------
+         * 1. KEYWORD / TECHNICAL COVERAGE - 60%
+         * -----------------------------------------
+         */
+
+        let matchedKeywords = [];
+
+        keywords.forEach(function(keyword) {
+
+            if (
+                answerLower.includes(
+                    keyword.toLowerCase()
+                )
+            ) {
+                matchedKeywords.push(keyword);
+            }
+
+        });
+
+        const keywordCount = keywords.length;
+        const matchCount = matchedKeywords.length;
+
+        let keywordScore = 0;
+
+        if (keywordCount > 0) {
+
+            keywordScore =
+                (matchCount / keywordCount) * 60;
+
+        }
+
+
+        /*
+         * -----------------------------------------
+         * 2. ANSWER QUALITY / LENGTH - 25%
+         * -----------------------------------------
+         */
+
+        let qualityScore = 0;
+
+        if (answer.length === 0) {
+
+            qualityScore = 0;
+
+        } else if (answer.length < 30) {
+
+            qualityScore = 5;
+
+        } else if (answer.length < 80) {
+
+            qualityScore = 12;
+
+        } else if (answer.length < 150) {
+
+            qualityScore = 20;
+
+        } else {
+
+            qualityScore = 25;
+
+        }
+
+
+        /*
+         * -----------------------------------------
+         * 3. COMPLETENESS / STRUCTURE - 15%
+         * -----------------------------------------
+         */
+
+        let completenessScore = 0;
+
+        if (answer.length === 0) {
+
+            completenessScore = 0;
+
+        } else {
+
+            completenessScore = 5;
+
+            /*
+             * Extra points if the answer
+             * contains multiple sentences.
+             */
+
+            const sentenceCount =
+                answer.split(/[.!?]+/)
+                    .filter(function(sentence) {
+                        return sentence.trim() !== "";
+                    }).length;
+
+            if (sentenceCount >= 2) {
+
+                completenessScore += 5;
+
+            }
+
+            /*
+             * Extra point for giving an example.
+             */
+
+            if (
+                answerLower.includes("example") ||
+                answerLower.includes("project") ||
+                answerLower.includes("experience")
+            ) {
+
+                completenessScore += 5;
+
+            }
+
+        }
+
+
+        /*
+         * -----------------------------------------
+         * FINAL QUESTION SCORE
+         * -----------------------------------------
+         */
+
+        const questionScore =
+            Math.min(
+                100,
+                Math.round(
+                    keywordScore +
+                    qualityScore +
+                    completenessScore
+                )
+            );
+
+
+        totalScore += questionScore;
+
+        totalKeywordMatches += matchCount;
+
+        totalKeywords += keywordCount;
+
+
+        /*
+         * Store question result
+         */
+
+        let evaluation = "";
+let suggestion = "";
+
+const questionType =
+    question.type || "technical";
+
+
+if (answer.length === 0) {
+
+    evaluation =
+        "No answer was provided for this question.";
+
+    suggestion =
+        "Try to answer every question during the interview.";
+
+}
+
+
+/* =====================================================
+   INTRODUCTION
+   ===================================================== */
+
+else if (questionType === "introduction") {
+
+    if (questionScore >= 65) {
+
+        evaluation =
+            "Good introduction with relevant information about your background.";
+
+        suggestion =
+            "Keep your introduction concise and confidently highlight your key skills and career goals.";
+
+    } else {
+
+        evaluation =
+            "Your introduction needs more information about your background, skills, and career interests.";
+
+        suggestion =
+            "Practice a 60–90 second introduction covering your education, skills, projects, and career goal.";
+
+    }
+
+}
+
+
+/* =====================================================
+   RESUME
+   ===================================================== */
+
+else if (questionType === "resume") {
+
+    if (questionScore >= 65) {
+
+        evaluation =
+            "Good explanation of your resume and experience.";
+
+        suggestion =
+            "Be ready to explain the technologies, responsibilities, and results related to your projects.";
+
+    } else {
+
+        evaluation =
+            "Your answer could explain your resume experience in more detail.";
+
+        suggestion =
+            "Review your resume and prepare a clear explanation for every project, skill, internship, and certification.";
+
+    }
+
+}
+
+
+/* =====================================================
+   HR
+   ===================================================== */
+
+else if (questionType === "hr") {
+
+    if (questionScore >= 65) {
+
+        evaluation =
+            "Good professional response with relevant points.";
+
+        suggestion =
+            "Support your answer with specific examples and connect your goals with the role.";
+
+    } else {
+
+        evaluation =
+            "Your HR response needs more clarity and structure.";
+
+        suggestion =
+            "Practice common HR questions and give confident answers supported by real examples.";
+
+    }
+
+}
+
+
+/* =====================================================
+   PROJECT
+   ===================================================== */
+
+else if (questionType === "project") {
+
+    if (questionScore >= 65) {
+
+        evaluation =
+            "Good understanding of your project and the concepts involved.";
+
+        suggestion =
+            "Clearly explain the problem, technologies used, your contribution, challenges, and final result.";
+
+    } else {
+
+        evaluation =
+            "Your project explanation needs more technical and practical details.";
+
+        suggestion =
+            "Prepare a structured explanation covering the problem, solution, tech stack, your role, challenges, and outcome.";
+
+    }
+
+}
+
+
+/* =====================================================
+   TECHNICAL
+   ===================================================== */
+
+else if (questionType === "technical") {
+
+    if (questionScore >= 65) {
+
+        evaluation =
+            "Good technical answer with relevant concepts.";
+
+        suggestion =
+            "Strengthen your answer further by explaining how the concept is used in a real project.";
+
+    } else {
+
+        evaluation =
+            "Your technical answer is missing some important concepts.";
+
+        suggestion =
+            "Review the topic and practice explaining the concept with a simple example or use case.";
+
+    }
+
+}
+
+
+/* =====================================================
+   BEHAVIORAL
+   ===================================================== */
+
+else if (questionType === "behavioral") {
+
+    if (questionScore >= 65) {
+
+        evaluation =
+            "Good behavioral response with relevant information.";
+
+        suggestion =
+            "Use a clear Situation, Task, Action, and Result (STAR) structure whenever possible.";
+
+    } else {
+
+        evaluation =
+            "Your behavioral answer needs a clearer real-world example.";
+
+        suggestion =
+            "Use the STAR method: explain the Situation, Task, Action you took, and Result.";
+
+    }
+
+}
+
+
+/* =====================================================
+   DEFAULT
+   ===================================================== */
+
+else {
+
+    if (questionScore >= 65) {
+
+        evaluation =
+            "Good answer with relevant information.";
+
+        suggestion =
+            "Continue giving clear explanations and practical examples.";
+
+    } else {
+
+        evaluation =
+            "Your answer needs more relevant information and explanation.";
+
+        suggestion =
+            "Practice this topic and provide a structured answer with examples.";
+
+    }
+
+}
+
+        questionResults.push({
+
+    question: question.question,
+
+    answer: answer,
+
+    score: questionScore,
+
+    matchedKeywords: matchedKeywords,
+
+    totalKeywords: keywordCount,
+
+    evaluation: evaluation,
+
+    suggestion: suggestion
+
+});
+
+    });
+
+
+    /*
+     * -----------------------------------------
+     * OVERALL SCORE
+     * -----------------------------------------
+     */
+
+    const overallScore =
+        questions.length > 0
+            ? Math.round(
+                totalScore / questions.length
+            )
+            : 0;
+
+
+    /*
+     * -----------------------------------------
+     * KEYWORD COVERAGE
+     * -----------------------------------------
+     */
+
+    const keywordCoverage =
+        totalKeywords > 0
+            ? Math.round(
+                (totalKeywordMatches / totalKeywords) * 100
+            )
+            : 0;
+
+
+    /*
+     * -----------------------------------------
+     * PERFORMANCE LEVEL
+     * -----------------------------------------
+     */
+
+    let performanceLevel;
+
+    if (overallScore >= 80) {
+
+        performanceLevel =
+            "🌟 Excellent Performance";
+
+    } else if (overallScore >= 65) {
+
+        performanceLevel =
+            "👍 Good Performance";
+
+    } else if (overallScore >= 50) {
+
+        performanceLevel =
+            "🙂 Average Performance";
+
+    } else {
+
+        performanceLevel =
+            "📚 Needs Improvement";
+
+    }
+
+
+    /*
+     * -----------------------------------------
+     * DISPLAY OVERALL RESULTS
+     * -----------------------------------------
+     */
+
+    document.getElementById("overallScore")
+        .textContent = overallScore;
+
+    document.getElementById("performanceLevel")
+        .textContent = performanceLevel;
+
+
+    /*
+     * Questions answered
+     */
+
+    const answeredCount =
+        answers.filter(function(answer) {
+
+            return answer.trim() !== "";
+
+        }).length;
+
+    document.getElementById("answeredCount")
+        .textContent = answeredCount;
+
+
+    /*
+     * Keyword coverage
+     */
+
+    document.getElementById("keywordScore")
+        .textContent =
+        keywordCoverage + "%";
+
+
+    /*
+     * -----------------------------------------
+     * TIME USED
+     * -----------------------------------------
+     */
+
+    const timeUsed =
+        Math.max(0, 300 - totalTime);
+
+    const minutes =
+        Math.floor(timeUsed / 60);
+
+    const seconds =
+        timeUsed % 60;
+
+    document.getElementById("timeUsed")
+        .textContent =
+        String(minutes).padStart(2, "0") +
+        ":" +
+        String(seconds).padStart(2, "0");
+
+
+    /*
+     * -----------------------------------------
+     * STRENGTHS
+     * -----------------------------------------
+     */
+
+    const strengthsList =
+        document.getElementById("strengthsList");
+
+    strengthsList.innerHTML = "";
+
+
+    if (overallScore >= 65) {
+
+        strengthsList.innerHTML +=
+            "<li>Good overall interview performance.</li>";
+
+    }
+
+    if (keywordCoverage >= 60) {
+
+        strengthsList.innerHTML +=
+            "<li>Strong coverage of important concepts.</li>";
+
+    }
+
+    if (answeredCount === questions.length) {
+
+        strengthsList.innerHTML +=
+            "<li>You attempted every interview question.</li>";
+
+    }
+
+    if (strengthsList.children.length === 0) {
+
+        strengthsList.innerHTML =
+            "<li>Keep practicing and focus on relevant concepts.</li>";
+
+    }
+
+
+    /*
+     * -----------------------------------------
+     * AREAS TO IMPROVE
+     * -----------------------------------------
+     */
+
+    const improvementsList =
+        document.getElementById("improvementsList");
+
+    improvementsList.innerHTML = "";
+
+
+    if (overallScore < 65) {
+
+        improvementsList.innerHTML +=
+            "<li>Practice answering common interview questions.</li>";
+
+    }
+
+    if (keywordCoverage < 60) {
+
+        improvementsList.innerHTML +=
+            "<li>Include more relevant technical concepts in your answers.</li>";
+
+    }
+
+    if (answeredCount < questions.length) {
+
+        improvementsList.innerHTML +=
+            "<li>Try to answer every question.</li>";
+
+    }
+
+
+    improvementsList.innerHTML +=
+        "<li>Use examples from your projects and experience whenever possible.</li>";
+
+    improvementsList.innerHTML +=
+        "<li>Try to structure answers with a clear explanation and conclusion.</li>";
+
+
+    /*
+     * -----------------------------------------
+     * QUESTION-WISE RESULTS
+     * -----------------------------------------
+     */
+
+    const questionResultsContainer =
+        document.getElementById("questionResults");
+
+    questionResultsContainer.innerHTML = "";
+
+
+    questionResults.forEach(function(result, index) {
+
+    const resultItem =
+        document.createElement("div");
+
+    resultItem.className =
+        "question-result-item";
+
+
+    resultItem.innerHTML = `
+
+        <div class="question-result-header">
+
+            <strong>
+                Question ${index + 1}
+            </strong>
+
+            <span>
+                ${result.score}/100
+            </span>
+
+        </div>
+
+
+        <p>
+            <strong>Question:</strong>
+            ${result.question}
+        </p>
+
+
+        <div class="answer-feedback">
+
+            <p>
+                <strong>📝 Your Answer:</strong>
+            </p>
+
+            <div class="candidate-answer">
+
+                ${
+                    result.answer
+                        ? result.answer
+                        : "No answer provided."
+                }
+
+            </div>
+
+
+            <p>
+                <strong>🔑 Keywords Matched:</strong>
+                ${
+                    result.matchedKeywords.length > 0
+                        ? result.matchedKeywords.join(", ")
+                        : "None"
+                }
+            </p>
+
+
+            <p>
+                <strong>🤖 Evaluation:</strong>
+                ${result.evaluation}
+            </p>
+
+
+            <p>
+                <strong>💡 Suggestion:</strong>
+                ${result.suggestion}
+            </p>
+
+        </div>
+
+    `;
+
+
+    questionResultsContainer.appendChild(
+        resultItem
+    );
+
+});
+
+
+    /*
+     * -----------------------------------------
+     * SHOW RESULT SCREEN
+     * -----------------------------------------
+     */
+
+    document.getElementById("interviewArea")
+        .style.display = "none";
+
+    document.getElementById("resultArea")
+        .style.display = "block";
+
+
+    document.getElementById("resultArea")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+function restartInterview() {
+
+    // Stop any running timer
+    clearInterval(timerInterval);
+
+
+    // Reset interview data
+    questions = [];
+    currentQuestion = 0;
+    answers = [];
+
+
+    // Reset timer
+    totalTime = 300;
+
+    document.getElementById("timer")
+        .textContent = "⏱️ 05:00";
+
+
+    // Reset progress
+    document.getElementById("questionNumber")
+        .textContent = "Question 1 / 10";
+
+    document.getElementById("progressPercentage")
+        .textContent = "0%";
+
+    document.getElementById("progressFill")
+        .style.width = "0%";
+
+
+    // Reset interview stage
+    document.getElementById("interviewStage")
+        .textContent = "🎤 Introduction";
+
+
+    // Reset question
+    document.getElementById("questionText")
+        .textContent =
+        "Interview question will appear here.";
+
+
+    // Reset answer box
+    const answerBox =
+        document.getElementById("answer");
+
+    answerBox.value = "";
+    answerBox.disabled = false;
+
+
+    // Reset button
+    const nextButton =
+        document.querySelector(
+            ".interview-actions .feature-btn"
+        );
+
+    nextButton.textContent =
+        "Next Question →";
+
+    nextButton.style.display =
+        "inline-block";
+
+
+    // Hide result
+    document.getElementById("resultArea")
+        .style.display = "none";
+
+
+    // Hide interview area
+    document.getElementById("interviewArea")
+        .style.display = "none";
+
+
+    // Reset result values
+    document.getElementById("overallScore")
+        .textContent = "0";
+
+    document.getElementById("performanceLevel")
+        .textContent = "Performance";
+
+    document.getElementById("answeredCount")
+        .textContent = "0";
+
+    document.getElementById("keywordScore")
+        .textContent = "0%";
+
+    document.getElementById("timeUsed")
+        .textContent = "00:00";
+
+
+    document.getElementById("strengthsList")
+        .innerHTML = "";
+
+    document.getElementById("improvementsList")
+        .innerHTML = "";
+
+    document.getElementById("questionResults")
+        .innerHTML = "";
+
+
+    // Go back to setup
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+    </script>
+
+</body>
+</html>

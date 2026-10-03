@@ -1,0 +1,212 @@
+{
+  "common": {
+    "easy": [
+      {
+        "question": "Tell me about yourself.",
+        "keywords": ["introduction", "education", "skills", "experience", "projects"],
+        "type": "introduction"
+      },
+      {
+        "question": "Walk me through your resume.",
+        "keywords": ["education", "skills", "projects", "experience", "certifications"],
+        "type": "resume"
+      },
+      {
+        "question": "What are your strengths?",
+        "keywords": ["strengths", "communication", "problem-solving", "teamwork"],
+        "type": "hr"
+      },
+      {
+        "question": "What is your biggest weakness?",
+        "keywords": ["weakness", "improvement", "learning", "development"],
+        "type": "hr"
+      },
+      {
+        "question": "Why should we hire you?",
+        "keywords": ["skills", "experience", "contribution", "learning"],
+        "type": "hr"
+      }
+    ],
+
+    "medium": [
+      {
+        "question": "Why did you choose Computer Science as your career?",
+        "keywords": ["computer science", "technology", "interest", "career"],
+        "type": "hr"
+      },
+      {
+        "question": "Where do you see yourself in the next five years?",
+        "keywords": ["career", "growth", "skills", "goals"],
+        "type": "hr"
+      },
+      {
+        "question": "Tell me about a challenging project you worked on.",
+        "keywords": ["project", "challenge", "solution", "result"],
+        "type": "project"
+      },
+      {
+        "question": "How do you handle pressure or tight deadlines?",
+        "keywords": ["pressure", "deadline", "planning", "prioritization"],
+        "type": "behavioral"
+      },
+      {
+        "question": "Tell me about a time you worked as part of a team.",
+        "keywords": ["teamwork", "communication", "collaboration", "contribution"],
+        "type": "behavioral"
+      }
+    ],
+
+    "hard": [
+      {
+        "question": "Tell me about a failure or mistake you experienced and what you learned from it.",
+        "keywords": ["failure", "mistake", "learning", "improvement"],
+        "type": "behavioral"
+      },
+      {
+        "question": "How would you explain a complex technical concept to a non-technical person?",
+        "keywords": ["communication", "simplification", "technical", "explanation"],
+        "type": "behavioral"
+      },
+      {
+        "question": "Describe a situation where you had to learn a new technology quickly.",
+        "keywords": ["learning", "technology", "adaptation", "problem-solving"],
+        "type": "behavioral"
+      }
+    ]
+  },
+
+  "fullstack": {
+    "easy": [
+      {
+        "question": "What is the difference between frontend and backend development?",
+        "keywords": ["frontend", "backend", "client", "server"],
+        "type": "technical"
+      },
+      {
+        "question": "What is HTML used for?",
+        "keywords": ["HTML", "structure", "web page", "markup"],
+        "type": "technical"
+      }
+    ],
+
+    "medium": [
+      {
+        "question": "Explain how a REST API works.",
+        "keywords": ["HTTP", "GET", "POST", "PUT", "DELETE", "API"],
+        "type": "technical"
+      }
+    ],
+
+    "hard": [
+      {
+        "question": "How would you design a scalable MERN stack application?",
+        "keywords": ["MongoDB", "Express", "React", "Node", "scaling", "caching"],
+        "type": "technical"
+      }
+    ]
+  },
+
+  "aiml": {
+    "easy": [
+      {
+        "question": "What is machine learning?",
+        "keywords": ["data", "model", "learning", "prediction"],
+        "type": "technical"
+      }
+    ],
+
+    "medium": [
+      {
+        "question": "What is the difference between supervised and unsupervised learning?",
+        "keywords": ["labeled", "unlabeled", "classification", "clustering"],
+        "type": "technical"
+      }
+    ],
+
+    "hard": [
+      {
+        "question": "How would you handle overfitting in a machine learning model?",
+        "keywords": ["regularization", "cross-validation", "dropout", "data"],
+        "type": "technical"
+      }
+    ]
+  },
+
+  "software": {
+    "easy": [
+      {
+        "question": "What is object-oriented programming?",
+        "keywords": ["class", "object", "inheritance", "polymorphism"],
+        "type": "technical"
+      }
+    ],
+
+    "medium": [
+      {
+        "question": "What is the difference between an array and a linked list?",
+        "keywords": ["array", "linked list", "memory", "access"],
+        "type": "technical"
+      }
+    ],
+
+    "hard": [
+      {
+        "question": "How would you design a highly scalable software system?",
+        "keywords": ["scalability", "database", "caching", "load balancing"],
+        "type": "technical"
+      }
+    ]
+  },
+
+  "python": {
+    "easy": [
+      {
+        "question": "What are the main features of Python?",
+        "keywords": ["interpreted", "dynamic", "object-oriented", "readable"],
+        "type": "technical"
+      }
+    ],
+
+    "medium": [
+      {
+        "question": "What is the difference between a list and a tuple in Python?",
+        "keywords": ["list", "tuple", "mutable", "immutable"],
+        "type": "technical"
+      }
+    ],
+
+    "hard": [
+      {
+        "question": "Explain Python decorators and give a practical use case.",
+        "keywords": ["decorator", "function", "wrapper", "higher-order"],
+        "type": "technical"
+      }
+    ]
+  },
+
+  "java": {
+    "easy": [
+      {
+        "question": "What is Java and what are its main features?",
+        "keywords": ["object-oriented", "platform-independent", "JVM", "bytecode"],
+        "type": "technical"
+      }
+    ],
+
+    "medium": [
+      {
+        "question": "What is the difference between method overloading and method overriding in Java?",
+        "keywords": ["overloading", "overriding", "compile-time", "runtime"],
+        "type": "technical"
+      }
+    ],
+
+    "hard": [
+      {
+        "question": "Explain the Java memory model and garbage collection.",
+        "keywords": ["heap", "stack", "garbage collection", "JVM", "memory"],
+        "type": "technical"
+      }
+    ]
+  }
+}

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ career.title }} Preparation | Smart Resume Analyzer</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='career.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">🚀 Smart Resume Analyzer</div>
+        <div class="nav-links">
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('home') }}#resume">Resume Analyzer</a>
+            <a href="{{ url_for('practice') }}">Practice</a>
+            <a href="{{ url_for('interview') }}">Interview</a>
+            <a href="{{ url_for('career') }}">Career</a>
+        </div>
+    </nav>
+
+    <main class="career-page">
+
+        <a href="{{ url_for('career') }}" class="back-link">← Change career</a>
+
+        <div class="career-header">
+            <span class="career-badge">{{ career.icon }} {{ career.title }}</span>
+            <h1>{{ career.title }} Preparation</h1>
+            <p>{{ career.description }}</p>
+        </div>
+
+
+        <!-- Career Readiness -->
+        <section class="career-panel">
+
+            <div class="readiness-top">
+                <h2>Career Readiness</h2>
+                <span class="readiness-percent">{{ analysis.readiness }}%</span>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" data-width="{{ analysis.readiness }}"></div>
+            </div>
+
+            <p class="readiness-level">
+                Level: <strong>{{ analysis.level }}</strong>
+                &nbsp;•&nbsp;
+                {{ analysis.your_skills|length }} of {{ career.skills|length }} skills
+            </p>
+
+            {% if not has_resume and not manual_skills %}
+                <p class="career-note">
+                    No resume found yet. Upload your resume below or tick the skills you know.
+                </p>
+            {% endif %}
+
+        </section>
+
+
+        <!-- Skills -->
+        <section class="skills-columns">
+
+            <div class="career-panel">
+                <h2>Your Skills</h2>
+
+                {% if analysis.your_skills %}
+                <ul class="skill-list">
+                    {% for skill in analysis.your_skills %}
+                    <li class="skill-item have">
+                        ✓ {{ skill }}
+                        {% if skill not in analysis.auto_detected %}
+                            <small>(added by you)</small>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                    <p class="empty-text">No skills detected yet.</p>
+                {% endif %}
+            </div>
+
+            <div class="career-panel">
+                <h2>Skills to Improve</h2>
+
+                {% if analysis.missing_skills %}
+                <ul class="skill-list">
+                    {% for skill in analysis.missing_skills %}
+                    <li class="skill-item missing">⚠ {{ skill }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                    <p class="empty-text">🎉 You have all the skills for this career!</p>
+                {% endif %}
+            </div>
+
+        </section>
+
+
+        <!-- Learning Roadmap -->
+        <section class="career-panel">
+
+            <h2>🗺️ Learning Roadmap</h2>
+
+            <div class="roadmap">
+                {% for step in analysis.roadmap %}
+                <div class="roadmap-step {{ step.status }}">
+                    <span class="roadmap-dot">
+                        {% if step.status == 'done' %}✓
+                        {% elif step.status == 'next' %}➜
+                        {% else %}{{ loop.index }}{% endif %}
+                    </span>
+                    <span class="roadmap-name">{{ step.name }}</span>
+                </div>
+                {% if not loop.last %}<span class="roadmap-arrow">→</span>{% endif %}
+                {% endfor %}
+            </div>
+
+            <p class="roadmap-legend">✓ Completed &nbsp; ➜ Learn next &nbsp; ○ Upcoming</p>
+
+        </section>
+
+
+        <!-- Update skills / resume -->
+        <section class="career-panel">
+
+            <h2>🔄 Update Your Skills</h2>
+            <p class="empty-text">
+                Upload a resume to auto-detect skills, and/or tick skills you already know.
+            </p>
+
+            <form method="POST" enctype="multipart/form-data" class="update-form">
+
+                <label for="resume">Resume (PDF)</label>
+                <input type="file" id="resume" name="resume" accept=".pdf">
+
+                {% set manual_options = [] %}
+                {% for s in career.skills %}
+                    {% if s.name not in analysis.auto_detected %}
+                        {% set _ = manual_options.append(s.name) %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if manual_options %}
+                <label>Skills I already know</label>
+
+                <div class="checkbox-grid">
+                    {% for name in manual_options %}
+                    <label class="check-item">
+                        <input type="checkbox" name="skills" value="{{ name }}"
+                               {% if name in manual_skills %}checked{% endif %}>
+                        {{ name }}
+                    </label>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <button type="submit" class="analyze-btn">Update Readiness</button>
+
+            </form>
+
+        </section>
+
+
+        <!-- Action buttons -->
+        <section class="career-actions">
+
+            <a class="feature-btn"
+               href="{{ url_for('practice') }}?category={{ career.practice_category }}">
+                📝 Practice Questions
+            </a>
+
+            <a class="feature-btn secondary"
+               href="{{ url_for('interview') }}?role={{ career.interview_role }}">
+                🎤 Interview Prep
+            </a>
+
+            <a class="feature-btn secondary" href="{{ url_for('home') }}#resume">
+                📊 Analyze Resume
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Smart Resume Analyzer</p>
+        <p>AI • NLP • Career Preparation</p>
+    </footer>
+
+    <script>
+    document.querySelectorAll(".progress-fill").forEach(function (bar) {
+        bar.style.width = bar.dataset.width + "%";
+    });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1783 @@
+
+{
+    "python": {
+        "easy": [
+            {
+                "question": "Which keyword is used to define a function in Python?",
+                "options": ["function", "def", "fun", "define"],
+                "answer": "def",
+                "explanation": "The def keyword is used to define a function in Python."
+            },
+            {
+                "question": "Which data type is used to store True or False?",
+                "options": ["int", "string", "bool", "float"],
+                "answer": "bool",
+                "explanation": "The bool data type represents True or False values."
+            },
+            {
+                "question": "Which symbol is used for a single-line comment in Python?",
+                "options": ["//", "#", "/*", "--"],
+                "answer": "#",
+                "explanation": "Python uses # to begin a single-line comment."
+            },
+            {
+                "question": "Which function is used to display output in Python?",
+                "options": ["display()", "echo()", "print()", "show()"],
+                "answer": "print()",
+                "explanation": "The print() function displays output on the screen."
+            },
+            {
+                "question": "Which of the following is a Python list?",
+                "options": ["(1, 2, 3)", "[1, 2, 3]", "{1, 2, 3}", "<1, 2, 3>"],
+                "answer": "[1, 2, 3]",
+                "explanation": "Square brackets are used to create a Python list."
+            },
+            {
+                "question": "Which function is used to find the length of a list?",
+                "options": ["length()", "size()", "len()", "count()"],
+                "answer": "len()",
+                "explanation": "The len() function returns the number of elements in a collection."
+            },
+            {
+                "question": "Which operator is used for exponentiation in Python?",
+                "options": ["^", "**", "//", "%%"],
+                "answer": "**",
+                "explanation": "The ** operator is used for exponentiation in Python."
+            },
+            {
+                "question": "Which keyword is used to create a loop over a sequence?",
+                "options": ["loop", "repeat", "for", "iterate"],
+                "answer": "for",
+                "explanation": "The for keyword is commonly used to iterate over sequences."
+            },
+            {
+                "question": "Which collection stores unique values?",
+                "options": ["List", "Tuple", "Set", "String"],
+                "answer": "Set",
+                "explanation": "A set stores unique elements and automatically removes duplicates."
+            },
+            {
+                "question": "Which keyword is used to import a module?",
+                "options": ["include", "using", "import", "module"],
+                "answer": "import",
+                "explanation": "The import keyword is used to load modules in Python."
+            }
+        ],
+        "medium": [
+            {
+                "question": "What is the output of: print(len([1, 2, 3, 4]))?",
+                "options": ["3", "4", "5", "Error"],
+                "answer": "4",
+                "explanation": "The list contains four elements, so len() returns 4."
+            },
+            {
+                "question": "What is the output of: print(10 // 3)?",
+                "options": ["3", "3.33", "4", "1"],
+                "answer": "3",
+                "explanation": "The // operator performs floor division, so 10 // 3 gives 3."
+            },
+            {
+                "question": "Which Python data structure stores key-value pairs?",
+                "options": ["List", "Tuple", "Dictionary", "Set"],
+                "answer": "Dictionary",
+                "explanation": "A dictionary stores data as key-value pairs."
+            },
+            {
+                "question": "What is the output of: print('Python'[0])?",
+                "options": ["P", "y", "Python", "Error"],
+                "answer": "P",
+                "explanation": "Python uses zero-based indexing, so index 0 refers to the first character."
+            },
+            {
+                "question": "Which keyword is used to handle exceptions?",
+                "options": ["catch", "try", "handle", "error"],
+                "answer": "try",
+                "explanation": "The try block is used together with except to handle exceptions."
+            },
+            {
+                "question": "What is the output of: print(2 ** 3)?",
+                "options": ["5", "6", "8", "9"],
+                "answer": "8",
+                "explanation": "2 ** 3 means 2 raised to the power of 3, which is 8."
+            },
+            {
+                "question": "Which method adds an element to the end of a list?",
+                "options": ["add()", "insert()", "append()", "push()"],
+                "answer": "append()",
+                "explanation": "The append() method adds an element to the end of a list."
+            },
+            {
+                "question": "What does the range(5) function generate?",
+                "options": [
+                    "1, 2, 3, 4, 5",
+                    "0, 1, 2, 3, 4",
+                    "0, 1, 2, 3, 4, 5",
+                    "5 only"
+                ],
+                "answer": "0, 1, 2, 3, 4",
+                "explanation": "range(5) generates numbers starting from 0 up to, but not including, 5."
+            },
+            {
+                "question": "Which keyword is used to stop a loop immediately?",
+                "options": ["stop", "exit", "break", "return"],
+                "answer": "break",
+                "explanation": "The break statement immediately terminates the current loop."
+            },
+            {
+                "question": "What is the output of: print(type(10))?",
+                "options": [
+                    "<class 'str'>",
+                    "<class 'float'>",
+                    "<class 'int'>",
+                    "<class 'number'>"
+                ],
+                "answer": "<class 'int'>",
+                "explanation": "The value 10 is an integer, so type(10) returns int."
+            }
+        ],
+        "hard": [
+            {
+                "question": "Which Python feature allows a function to remember values from its enclosing scope?",
+                "options": ["Inheritance", "Closure", "Polymorphism", "Decorator"],
+                "answer": "Closure",
+                "explanation": "A closure allows an inner function to retain access to variables from its enclosing scope."
+            },
+            {
+                "question": "What is the output of: print([x * 2 for x in range(3)])?",
+                "options": ["[0, 1, 2]", "[0, 2, 4]", "[2, 4, 6]", "[1, 2, 3]"],
+                "answer": "[0, 2, 4]",
+                "explanation": "range(3) produces 0, 1, 2, and each value is multiplied by 2."
+            },
+            {
+                "question": "Which decorator is commonly used to define a static method inside a class?",
+                "options": ["@classmethod", "@staticmethod", "@property", "@abstractmethod"],
+                "answer": "@staticmethod",
+                "explanation": "The @staticmethod decorator defines a method that does not receive self or cls automatically."
+            },
+            {
+                "question": "What is the primary purpose of the __init__ method in a Python class?",
+                "options": [
+                    "Delete an object",
+                    "Initialize an object",
+                    "Create a module",
+                    "Handle exceptions"
+                ],
+                "answer": "Initialize an object",
+                "explanation": "The __init__ method initializes an object's attributes when an instance is created."
+            },
+            {
+                "question": "Which statement about Python generators is correct?",
+                "options": [
+                    "They always return lists",
+                    "They use yield to produce values lazily",
+                    "They cannot be iterated",
+                    "They only work with strings"
+                ],
+                "answer": "They use yield to produce values lazily",
+                "explanation": "Generators use yield and produce values one at a time, which can save memory."
+            },
+            {
+                "question": "What does the *args syntax allow a function to accept?",
+                "options": [
+                    "Multiple positional arguments",
+                    "Multiple keyword arguments",
+                    "Only one argument",
+                    "Only strings"
+                ],
+                "answer": "Multiple positional arguments",
+                "explanation": "*args allows a function to receive a variable number of positional arguments."
+            },
+            {
+                "question": "What does **kwargs allow a function to accept?",
+                "options": [
+                    "Multiple positional arguments",
+                    "Multiple keyword arguments",
+                    "Only integer arguments",
+                    "No arguments"
+                ],
+                "answer": "Multiple keyword arguments",
+                "explanation": "**kwargs collects a variable number of keyword arguments into a dictionary."
+            },
+            {
+                "question": "Which data structure is commonly used internally for Python dictionaries?",
+                "options": ["Stack", "Hash table", "Linked list", "Binary tree"],
+                "answer": "Hash table",
+                "explanation": "Python dictionaries use hash-table-based structures for efficient key lookup."
+            },
+            {
+                "question": "What is the purpose of the with statement when working with files?",
+                "options": [
+                    "It encrypts the file",
+                    "It automatically manages resources",
+                    "It converts the file to JSON",
+                    "It deletes the file"
+                ],
+                "answer": "It automatically manages resources",
+                "explanation": "The with statement uses a context manager to ensure resources such as files are properly managed."
+            },
+            {
+                "question": "Which statement is true about Python's Global Interpreter Lock (GIL) in CPython?",
+                "options": [
+                    "It allows multiple threads to execute Python bytecode simultaneously",
+                    "It prevents all multiprocessing",
+                    "It generally allows only one thread at a time to execute Python bytecode",
+                    "It disables asynchronous programming"
+                ],
+                "answer": "It generally allows only one thread at a time to execute Python bytecode",
+                "explanation": "In standard CPython builds, the GIL generally allows only one thread at a time to execute Python bytecode."
+            }
+        ]
+    },
+
+    "aptitude": {
+        "easy": [
+            {
+                "question": "What is 25% of 200?",
+                "options": ["25", "40", "50", "75"],
+                "answer": "50",
+                "explanation": "25% of 200 = (25/100) × 200 = 50."
+            },
+            {
+                "question": "What is 15 + 27?",
+                "options": ["40", "42", "44", "45"],
+                "answer": "42",
+                "explanation": "15 + 27 = 42."
+            },
+            {
+                "question": "If a pen costs ₹20, how much do 5 pens cost?",
+                "options": ["₹80", "₹90", "₹100", "₹120"],
+                "answer": "₹100",
+                "explanation": "5 × ₹20 = ₹100."
+            },
+            {
+                "question": "What is the average of 10, 20 and 30?",
+                "options": ["15", "20", "25", "30"],
+                "answer": "20",
+                "explanation": "Average = (10 + 20 + 30) / 3 = 20."
+            },
+            {
+                "question": "What is 3 × 12?",
+                "options": ["30", "32", "36", "42"],
+                "answer": "36",
+                "explanation": "3 × 12 = 36."
+            },
+            {
+                "question": "A car travels 60 km in 1 hour. How far will it travel in 3 hours at the same speed?",
+                "options": ["120 km", "150 km", "180 km", "200 km"],
+                "answer": "180 km",
+                "explanation": "Distance = Speed × Time = 60 × 3 = 180 km."
+            },
+            {
+                "question": "What is the next number: 2, 4, 6, 8, ?",
+                "options": ["9", "10", "11", "12"],
+                "answer": "10",
+                "explanation": "The sequence increases by 2 each time."
+            },
+            {
+                "question": "What is 10% of 500?",
+                "options": ["25", "40", "50", "100"],
+                "answer": "50",
+                "explanation": "10% of 500 = 50."
+            },
+            {
+                "question": "If 5 workers complete a task in 10 days, which basic relationship applies when worker efficiency is equal?",
+                "options": [
+                    "More workers generally require more days",
+                    "Workers and days are inversely proportional",
+                    "Workers and days are always equal",
+                    "Workers have no effect"
+                ],
+                "answer": "Workers and days are inversely proportional",
+                "explanation": "For the same amount of work and equal efficiency, increasing workers generally decreases the required days."
+            },
+            {
+                "question": "What is the simple interest on ₹1000 at 10% per year for 1 year?",
+                "options": ["₹10", "₹50", "₹100", "₹110"],
+                "answer": "₹100",
+                "explanation": "SI = P × R × T / 100 = 1000 × 10 × 1 / 100 = ₹100."
+            }
+        ],
+
+        "medium": [
+            {
+                "question": "A product costs ₹800 and is sold for ₹960. What is the profit percentage?",
+                "options": ["10%", "15%", "20%", "25%"],
+                "answer": "20%",
+                "explanation": "Profit = 960 - 800 = ₹160. Profit% = 160/800 × 100 = 20%."
+            },
+            {
+                "question": "The average of 5 numbers is 24. What is their total?",
+                "options": ["100", "110", "120", "125"],
+                "answer": "120",
+                "explanation": "Total = Average × Number of values = 24 × 5 = 120."
+            },
+            {
+                "question": "A train travels at 60 km/h. How long does it take to travel 150 km?",
+                "options": ["2 hours", "2.5 hours", "3 hours", "3.5 hours"],
+                "answer": "2.5 hours",
+                "explanation": "Time = Distance / Speed = 150 / 60 = 2.5 hours."
+            },
+            {
+                "question": "A number is increased by 20% and becomes 240. What was the original number?",
+                "options": ["180", "200", "220", "230"],
+                "answer": "200",
+                "explanation": "120% of the original number is 240. Original = 240 / 1.2 = 200."
+            },
+            {
+                "question": "What is the ratio of 45 to 60 in its simplest form?",
+                "options": ["2:3", "3:4", "4:5", "5:6"],
+                "answer": "3:4",
+                "explanation": "45:60 can be divided by 15, giving 3:4."
+            },
+            {
+                "question": "A can complete a job in 10 days and B can complete it in 15 days. How long will they take together?",
+                "options": ["5 days", "6 days", "7 days", "8 days"],
+                "answer": "6 days",
+                "explanation": "Combined rate = 1/10 + 1/15 = 1/6, so they complete the work in 6 days."
+            },
+            {
+                "question": "If the selling price of an article is ₹900 after a 10% discount, what was its marked price?",
+                "options": ["₹950", "₹1000", "₹1050", "₹1100"],
+                "answer": "₹1000",
+                "explanation": "90% of the marked price is ₹900. Marked price = 900 / 0.9 = ₹1000."
+            },
+            {
+                "question": "What is the next number in the sequence: 3, 6, 12, 24, ?",
+                "options": ["36", "42", "48", "54"],
+                "answer": "48",
+                "explanation": "Each number is multiplied by 2."
+            },
+            {
+                "question": "A man spends 70% of his salary and saves ₹9000. What is his salary?",
+                "options": ["₹27000", "₹30000", "₹32000", "₹35000"],
+                "answer": "₹30000",
+                "explanation": "He saves 30% of his salary. 30% = ₹9000, so salary = ₹9000 / 0.30 = ₹30000."
+            },
+            {
+                "question": "A mixture contains milk and water in the ratio 3:2. If the total mixture is 25 liters, how much milk is present?",
+                "options": ["10 L", "12 L", "15 L", "18 L"],
+                "answer": "15 L",
+                "explanation": "Total ratio = 5. Milk = 3/5 × 25 = 15 liters."
+            }
+        ],
+
+        "hard": [
+            {
+                "question": "A shopkeeper marks an item 40% above cost price and gives a 10% discount. What is his profit percentage?",
+                "options": ["20%", "24%", "26%", "30%"],
+                "answer": "26%",
+                "explanation": "Assume CP = 100. MP = 140. After 10% discount, SP = 126. Profit = 26%."
+            },
+            {
+                "question": "A train 180 m long crosses a pole in 9 seconds. What is its speed?",
+                "options": ["60 km/h", "72 km/h", "80 km/h", "90 km/h"],
+                "answer": "72 km/h",
+                "explanation": "Speed = 180/9 = 20 m/s. Converting to km/h: 20 × 18/5 = 72 km/h."
+            },
+            {
+                "question": "A can complete a work in 12 days, B in 18 days and C in 36 days. How many days will they take together?",
+                "options": ["4 days", "6 days", "8 days", "9 days"],
+                "answer": "6 days",
+                "explanation": "Combined rate = 1/12 + 1/18 + 1/36 = 1/6. Therefore, 6 days."
+            },
+            {
+                "question": "The compound interest on ₹10,000 at 10% per annum for 2 years is:",
+                "options": ["₹2000", "₹2100", "₹2200", "₹2500"],
+                "answer": "₹2100",
+                "explanation": "Amount = 10000 × 1.1² = ₹12100. CI = ₹12100 - ₹10000 = ₹2100."
+            },
+            {
+                "question": "A number is increased by 25% and then decreased by 20%. What is the overall percentage change?",
+                "options": ["0%", "5% increase", "5% decrease", "10% increase"],
+                "answer": "0%",
+                "explanation": "Assume 100. After 25% increase = 125. After 20% decrease = 100. There is no overall change."
+            },
+            {
+                "question": "The ratio of ages of A and B is 4:5. After 6 years, their ratio becomes 5:6. What is A's present age?",
+                "options": ["18", "20", "24", "30"],
+                "answer": "24",
+                "explanation": "Let ages be 4x and 5x. (4x+6)/(5x+6)=5/6 gives x=6, so A=24."
+            },
+            {
+                "question": "A boat travels 30 km downstream in 2 hours and the same distance upstream in 3 hours. What is the speed of the boat in still water?",
+                "options": ["10 km/h", "12.5 km/h", "15 km/h", "20 km/h"],
+                "answer": "12.5 km/h",
+                "explanation": "Downstream speed = 15 km/h and upstream speed = 10 km/h. Still-water speed = (15+10)/2 = 12.5 km/h."
+            },
+            {
+                "question": "If x:y = 3:4 and y:z = 8:9, what is x:z?",
+                "options": ["2:3", "3:5", "3:6", "4:9"],
+                "answer": "2:3",
+                "explanation": "Make y common: x:y = 6:8 and y:z = 8:9. Therefore x:z = 6:9 = 2:3."
+            },
+            {
+                "question": "A sum becomes ₹14,400 in 2 years at 20% compound interest per annum. What was the principal?",
+                "options": ["₹8000", "₹9000", "₹10000", "₹12000"],
+                "answer": "₹10000",
+                "explanation": "Amount = P × 1.2² = 1.44P. Therefore P = 14400/1.44 = ₹10000."
+            },
+            {
+                "question": "A person travels half of a distance at 40 km/h and the remaining half at 60 km/h. What is the average speed?",
+                "options": ["45 km/h", "48 km/h", "50 km/h", "52 km/h"],
+                "answer": "48 km/h",
+                "explanation": "For equal distances, average speed = 2ab/(a+b) = 2×40×60/100 = 48 km/h."
+            }
+        ]
+    },
+    
+"dbms": {
+    "easy": [
+        {
+            "question": "What does DBMS stand for?",
+            "options": [
+                "Data Backup Management System",
+                "Database Management System",
+                "Database Monitoring System",
+                "Data Building Management System"
+            ],
+            "answer": "Database Management System",
+            "explanation": "DBMS stands for Database Management System, which is software used to create, manage and manipulate databases."
+        },
+        {
+            "question": "Which of the following is an example of a DBMS?",
+            "options": [
+                "MySQL",
+                "HTML",
+                "Python",
+                "CSS"
+            ],
+            "answer": "MySQL",
+            "explanation": "MySQL is a popular relational database management system."
+        },
+        {
+            "question": "Which key uniquely identifies each record in a table?",
+            "options": [
+                "Foreign Key",
+                "Primary Key",
+                "Candidate Key",
+                "Alternate Key"
+            ],
+            "answer": "Primary Key",
+            "explanation": "A primary key uniquely identifies each record in a table."
+        },
+        {
+            "question": "Which SQL command is used to retrieve data from a database?",
+            "options": [
+                "GET",
+                "FETCH",
+                "SELECT",
+                "RETRIEVE"
+            ],
+            "answer": "SELECT",
+            "explanation": "The SELECT statement is used to retrieve data from one or more tables."
+        },
+        {
+            "question": "Which SQL command is used to add a new record to a table?",
+            "options": [
+                "ADD",
+                "INSERT",
+                "CREATE",
+                "UPDATE"
+            ],
+            "answer": "INSERT",
+            "explanation": "The INSERT statement is used to add new records to a table."
+        },
+        {
+            "question": "What is a table in a relational database?",
+            "options": [
+                "A collection of related rows and columns",
+                "A programming function",
+                "A database password",
+                "A network connection"
+            ],
+            "answer": "A collection of related rows and columns",
+            "explanation": "A relational database stores related data in tables consisting of rows and columns."
+        },
+        {
+            "question": "Which key creates a relationship between two tables?",
+            "options": [
+                "Primary Key",
+                "Foreign Key",
+                "Super Key",
+                "Composite Key"
+            ],
+            "answer": "Foreign Key",
+            "explanation": "A foreign key references a key in another table and helps establish relationships between tables."
+        },
+        {
+            "question": "Which SQL command is used to remove a table completely?",
+            "options": [
+                "DELETE",
+                "REMOVE",
+                "DROP",
+                "CLEAR"
+            ],
+            "answer": "DROP",
+            "explanation": "DROP TABLE removes the table and its data from the database."
+        },
+        {
+            "question": "Which constraint prevents NULL values in a column?",
+            "options": [
+                "UNIQUE",
+                "NOT NULL",
+                "CHECK",
+                "DEFAULT"
+            ],
+            "answer": "NOT NULL",
+            "explanation": "The NOT NULL constraint ensures that a column cannot contain NULL values."
+        },
+        {
+            "question": "Which SQL command is used to modify existing records?",
+            "options": [
+                "CHANGE",
+                "MODIFY",
+                "UPDATE",
+                "ALTER"
+            ],
+            "answer": "UPDATE",
+            "explanation": "The UPDATE statement is used to modify existing records in a table."
+        }
+    ],
+
+    "medium": [
+        {
+            "question": "Which SQL clause is used to filter rows based on a condition?",
+            "options": [
+                "ORDER BY",
+                "GROUP BY",
+                "WHERE",
+                "HAVING"
+            ],
+            "answer": "WHERE",
+            "explanation": "The WHERE clause filters individual rows based on a specified condition."
+        },
+        {
+            "question": "Which SQL clause is used to sort query results?",
+            "options": [
+                "SORT BY",
+                "ORDER BY",
+                "GROUP BY",
+                "ARRANGE BY"
+            ],
+            "answer": "ORDER BY",
+            "explanation": "ORDER BY sorts the result set in ascending or descending order."
+        },
+        {
+            "question": "Which JOIN returns only matching records from both tables?",
+            "options": [
+                "LEFT JOIN",
+                "RIGHT JOIN",
+                "FULL JOIN",
+                "INNER JOIN"
+            ],
+            "answer": "INNER JOIN",
+            "explanation": "INNER JOIN returns rows where the join condition matches in both tables."
+        },
+        {
+            "question": "What does normalization primarily help to reduce?",
+            "options": [
+                "Network traffic",
+                "Data redundancy",
+                "CPU usage",
+                "Memory size"
+            ],
+            "answer": "Data redundancy",
+            "explanation": "Database normalization organizes data to reduce unnecessary duplication and improve consistency."
+        },
+        {
+            "question": "Which normal form eliminates repeating groups and ensures atomic values?",
+            "options": [
+                "1NF",
+                "2NF",
+                "3NF",
+                "BCNF"
+            ],
+            "answer": "1NF",
+            "explanation": "First Normal Form requires atomic values and eliminates repeating groups."
+        },
+        {
+            "question": "What does ACID stand for in database transactions?",
+            "options": [
+                "Atomicity, Consistency, Isolation, Durability",
+                "Accuracy, Control, Integrity, Data",
+                "Atomicity, Control, Isolation, Dependency",
+                "Access, Consistency, Integrity, Durability"
+            ],
+            "answer": "Atomicity, Consistency, Isolation, Durability",
+            "explanation": "ACID properties ensure reliable and consistent transaction processing."
+        },
+        {
+            "question": "Which SQL function returns the number of rows?",
+            "options": [
+                "SUM()",
+                "COUNT()",
+                "TOTAL()",
+                "NUMBER()"
+            ],
+            "answer": "COUNT()",
+            "explanation": "COUNT() returns the number of rows or non-NULL values depending on how it is used."
+        },
+        {
+            "question": "Which SQL clause is commonly used to filter grouped results?",
+            "options": [
+                "WHERE",
+                "HAVING",
+                "FILTER",
+                "GROUP"
+            ],
+            "answer": "HAVING",
+            "explanation": "HAVING filters groups after GROUP BY has been applied."
+        },
+        {
+            "question": "Which command removes selected rows while keeping the table structure?",
+            "options": [
+                "DROP",
+                "DELETE",
+                "REMOVE TABLE",
+                "TRUNCATE DATABASE"
+            ],
+            "answer": "DELETE",
+            "explanation": "DELETE removes selected rows and preserves the table structure."
+        },
+        {
+            "question": "Which type of index is commonly used to speed up searches on database columns?",
+            "options": [
+                "Database index",
+                "Memory index",
+                "Network index",
+                "Program index"
+            ],
+            "answer": "Database index",
+            "explanation": "Indexes provide a data structure that can speed up data retrieval operations."
+        }
+    ],
+
+    "hard": [
+        {
+            "question": "Which normal form removes partial dependency on a composite key?",
+            "options": [
+                "1NF",
+                "2NF",
+                "3NF",
+                "BCNF"
+            ],
+            "answer": "2NF",
+            "explanation": "Second Normal Form removes partial dependencies, meaning non-key attributes must depend on the whole candidate key."
+        },
+        {
+            "question": "Which normal form removes transitive dependencies?",
+            "options": [
+                "1NF",
+                "2NF",
+                "3NF",
+                "4NF"
+            ],
+            "answer": "3NF",
+            "explanation": "Third Normal Form eliminates transitive dependencies of non-key attributes on candidate keys."
+        },
+        {
+            "question": "What is a deadlock in database systems?",
+            "options": [
+                "A failed database connection",
+                "Two or more transactions waiting indefinitely for each other",
+                "A deleted table",
+                "A corrupted index"
+            ],
+            "answer": "Two or more transactions waiting indefinitely for each other",
+            "explanation": "A deadlock occurs when transactions hold resources and wait indefinitely for resources held by each other."
+        },
+        {
+            "question": "Which concurrency control technique uses locks to control simultaneous access to data?",
+            "options": [
+                "Two-phase locking",
+                "Data partitioning",
+                "Normalization",
+                "Index scanning"
+            ],
+            "answer": "Two-phase locking",
+            "explanation": "Two-phase locking is a concurrency-control protocol that uses locks to maintain transaction serializability."
+        },
+        {
+            "question": "What is a candidate key?",
+            "options": [
+                "Any column containing duplicate values",
+                "A minimal set of attributes that uniquely identifies a record",
+                "A foreign key from another table",
+                "A column that always contains NULL"
+            ],
+            "answer": "A minimal set of attributes that uniquely identifies a record",
+            "explanation": "A candidate key is a minimal superkey capable of uniquely identifying each tuple."
+        },
+        {
+            "question": "What is a composite key?",
+            "options": [
+                "A key made from multiple attributes",
+                "A key containing only NULL values",
+                "A foreign key with no reference",
+                "An automatically generated key"
+            ],
+            "answer": "A key made from multiple attributes",
+            "explanation": "A composite key consists of two or more attributes that together uniquely identify a record."
+        },
+        {
+            "question": "What is the main purpose of a database view?",
+            "options": [
+                "To physically duplicate all table data",
+                "To provide a virtual table based on a query",
+                "To replace the database server",
+                "To permanently delete records"
+            ],
+            "answer": "To provide a virtual table based on a query",
+            "explanation": "A view is a virtual table whose contents are defined by a query."
+        },
+        {
+            "question": "Which isolation level provides the highest standard level of transaction isolation among the commonly defined SQL isolation levels?",
+            "options": [
+                "Read Uncommitted",
+                "Read Committed",
+                "Repeatable Read",
+                "Serializable"
+            ],
+            "answer": "Serializable",
+            "explanation": "Serializable provides the strongest standard isolation level and aims to produce results equivalent to serial transaction execution."
+        },
+        {
+            "question": "What is a functional dependency in a relational database?",
+            "options": [
+                "A relationship where one attribute determines another",
+                "A relationship between two databases",
+                "A type of database backup",
+                "A method of sorting records"
+            ],
+            "answer": "A relationship where one attribute determines another",
+            "explanation": "A functional dependency X → Y means that the value of X determines the value of Y."
+        },
+        {
+            "question": "What is the main purpose of query optimization?",
+            "options": [
+                "To increase data duplication",
+                "To find an efficient execution plan for a query",
+                "To delete unused tables",
+                "To convert SQL into HTML"
+            ],
+            "answer": "To find an efficient execution plan for a query",
+            "explanation": "Query optimization attempts to select an efficient execution plan to reduce resources such as execution time and I/O."
+        }
+    ]
+},
+"os": {
+    "easy": [
+        {
+            "question": "What does OS stand for?",
+            "options": [
+                "Operating System",
+                "Open Software",
+                "Operating Service",
+                "Online System"
+            ],
+            "answer": "Operating System",
+            "explanation": "OS stands for Operating System, which manages computer hardware and software resources."
+        },
+        {
+            "question": "Which of the following is an operating system?",
+            "options": [
+                "Windows",
+                "HTML",
+                "MySQL",
+                "Python"
+            ],
+            "answer": "Windows",
+            "explanation": "Windows is an operating system developed by Microsoft."
+        },
+        {
+            "question": "Which component manages processes in an operating system?",
+            "options": [
+                "Process scheduler",
+                "Compiler",
+                "Web browser",
+                "Text editor"
+            ],
+            "answer": "Process scheduler",
+            "explanation": "The process scheduler determines which process should be allocated CPU time."
+        },
+        {
+            "question": "What is a process?",
+            "options": [
+                "A program in execution",
+                "A computer file",
+                "A hardware device",
+                "A database table"
+            ],
+            "answer": "A program in execution",
+            "explanation": "A process is a program that is currently being executed by the operating system."
+        },
+        {
+            "question": "Which memory is directly accessed by the CPU for currently running programs?",
+            "options": [
+                "RAM",
+                "Hard Disk",
+                "DVD",
+                "USB Drive"
+            ],
+            "answer": "RAM",
+            "explanation": "RAM stores programs and data that are actively being used by the CPU."
+        },
+        {
+            "question": "What is multitasking?",
+            "options": [
+                "Running multiple tasks seemingly at the same time",
+                "Running only one program",
+                "Deleting multiple files",
+                "Installing multiple operating systems"
+            ],
+            "answer": "Running multiple tasks seemingly at the same time",
+            "explanation": "Multitasking allows an operating system to manage multiple processes concurrently."
+        },
+        {
+            "question": "Which of the following is a type of operating system?",
+            "options": [
+                "Batch OS",
+                "Database OS",
+                "Browser OS",
+                "Compiler OS"
+            ],
+            "answer": "Batch OS",
+            "explanation": "Batch operating systems execute jobs in batches without requiring direct user interaction."
+        },
+        {
+            "question": "What is a file system?",
+            "options": [
+                "A method for organizing and storing files",
+                "A programming language",
+                "A CPU component",
+                "A network protocol"
+            ],
+            "answer": "A method for organizing and storing files",
+            "explanation": "A file system organizes and manages files and directories on storage devices."
+        },
+        {
+            "question": "Which OS component provides an interface between users and hardware?",
+            "options": [
+                "Operating system",
+                "Database",
+                "Compiler",
+                "Router"
+            ],
+            "answer": "Operating system",
+            "explanation": "The operating system acts as an interface between users, applications and computer hardware."
+        },
+        {
+            "question": "Which of the following is an example of open-source operating system?",
+            "options": [
+                "Linux",
+                "Windows",
+                "macOS",
+                "iOS"
+            ],
+            "answer": "Linux",
+            "explanation": "Linux is a widely used open-source operating system."
+        }
+    ],
+    "medium": [
+        {
+            "question": "What is virtual memory?",
+            "options": [
+                "A technique that uses storage as an extension of RAM",
+                "A type of CPU",
+                "A physical RAM chip",
+                "A network protocol"
+            ],
+            "answer": "A technique that uses storage as an extension of RAM",
+            "explanation": "Virtual memory allows the operating system to use secondary storage as an extension of physical memory."
+        },
+        {
+            "question": "What is a thread?",
+            "options": [
+                "A lightweight unit of execution within a process",
+                "A physical memory device",
+                "A file system",
+                "A network connection"
+            ],
+            "answer": "A lightweight unit of execution within a process",
+            "explanation": "A thread is the smallest unit of CPU execution within a process."
+        },
+        {
+            "question": "Which scheduling algorithm executes processes in the order they arrive?",
+            "options": [
+                "FCFS",
+                "Round Robin",
+                "SJF",
+                "Priority Scheduling"
+            ],
+            "answer": "FCFS",
+            "explanation": "First Come First Serve schedules processes according to their arrival order."
+        },
+        {
+            "question": "Which scheduling algorithm assigns a fixed time slice to each process?",
+            "options": [
+                "FCFS",
+                "Round Robin",
+                "SJF",
+                "FIFO"
+            ],
+            "answer": "Round Robin",
+            "explanation": "Round Robin scheduling gives each process a fixed time quantum in a cyclic order."
+        },
+        {
+            "question": "What is a context switch?",
+            "options": [
+                "Switching the CPU from one process or thread to another",
+                "Changing a file name",
+                "Changing the operating system",
+                "Switching network connections"
+            ],
+            "answer": "Switching the CPU from one process or thread to another",
+            "explanation": "A context switch saves the state of one process and loads the state of another."
+        },
+        {
+            "question": "Which page replacement algorithm removes the page that has not been used for the longest time?",
+            "options": [
+                "FIFO",
+                "LRU",
+                "Round Robin",
+                "FCFS"
+            ],
+            "answer": "LRU",
+            "explanation": "Least Recently Used replaces the page that has not been referenced for the longest time."
+        },
+        {
+            "question": "What is fragmentation?",
+            "options": [
+                "Wasted memory space caused by allocation patterns",
+                "A CPU scheduling method",
+                "A network protocol",
+                "A type of process"
+            ],
+            "answer": "Wasted memory space caused by allocation patterns",
+            "explanation": "Fragmentation occurs when available memory is divided into inefficiently sized blocks."
+        },
+        {
+            "question": "What is a system call?",
+            "options": [
+                "A mechanism through which a program requests OS services",
+                "A network call",
+                "A database query",
+                "A compiler command"
+            ],
+            "answer": "A mechanism through which a program requests OS services",
+            "explanation": "System calls provide an interface for applications to request services from the operating system."
+        },
+        {
+            "question": "Which mode allows the operating system kernel to execute privileged instructions?",
+            "options": [
+                "Kernel mode",
+                "User mode",
+                "Application mode",
+                "Normal mode"
+            ],
+            "answer": "Kernel mode",
+            "explanation": "Kernel mode provides the operating system with access to privileged CPU instructions and hardware resources."
+        },
+        {
+            "question": "What is a semaphore used for?",
+            "options": [
+                "Process synchronization",
+                "File compression",
+                "CPU manufacturing",
+                "Network routing"
+            ],
+            "answer": "Process synchronization",
+            "explanation": "Semaphores are synchronization mechanisms used to control access to shared resources."
+        }
+    ],
+    "hard": [
+        {
+            "question": "What is deadlock?",
+            "options": [
+                "A situation where processes wait indefinitely for resources",
+                "A process completing successfully",
+                "A memory allocation technique",
+                "A CPU scheduling algorithm"
+            ],
+            "answer": "A situation where processes wait indefinitely for resources",
+            "explanation": "Deadlock occurs when processes are permanently blocked because each is waiting for resources held by another."
+        },
+        {
+            "question": "Which of the following is NOT a necessary condition for deadlock?",
+            "options": [
+                "Mutual exclusion",
+                "Hold and wait",
+                "Circular wait",
+                "Process termination"
+            ],
+            "answer": "Process termination",
+            "explanation": "The four necessary conditions are mutual exclusion, hold and wait, no preemption and circular wait."
+        },
+        {
+            "question": "Which algorithm is used for deadlock avoidance?",
+            "options": [
+                "Banker's Algorithm",
+                "Round Robin",
+                "FCFS",
+                "FIFO"
+            ],
+            "answer": "Banker's Algorithm",
+            "explanation": "Banker's Algorithm avoids deadlock by ensuring that resource allocation keeps the system in a safe state."
+        },
+        {
+            "question": "What is thrashing?",
+            "options": [
+                "Excessive paging that reduces system performance",
+                "A CPU scheduling technique",
+                "A file management technique",
+                "A network failure"
+            ],
+            "answer": "Excessive paging that reduces system performance",
+            "explanation": "Thrashing occurs when the system spends excessive time swapping pages instead of executing processes."
+        },
+        {
+            "question": "What is a race condition?",
+            "options": [
+                "A situation where output depends on the timing of concurrent operations",
+                "A CPU failure",
+                "A memory overflow",
+                "A disk error"
+            ],
+            "answer": "A situation where output depends on the timing of concurrent operations",
+            "explanation": "A race condition occurs when concurrent processes or threads access shared data and the result depends on their execution order."
+        },
+        {
+            "question": "Which page replacement algorithm can suffer from Belady's anomaly?",
+            "options": [
+                "FIFO",
+                "LRU",
+                "Optimal",
+                "MRU"
+            ],
+            "answer": "FIFO",
+            "explanation": "FIFO can exhibit Belady's anomaly, where increasing the number of frames can increase page faults."
+        },
+        {
+            "question": "What is starvation in operating systems?",
+            "options": [
+                "A process waits indefinitely because resources are repeatedly given to others",
+                "A process terminates normally",
+                "A process uses too much memory",
+                "A disk becomes full"
+            ],
+            "answer": "A process waits indefinitely because resources are repeatedly given to others",
+            "explanation": "Starvation occurs when a process is continually denied the resources it needs."
+        },
+        {
+            "question": "What is the main purpose of a mutex?",
+            "options": [
+                "To provide mutual exclusion for shared resources",
+                "To allocate memory",
+                "To schedule CPU processes",
+                "To manage files"
+            ],
+            "answer": "To provide mutual exclusion for shared resources",
+            "explanation": "A mutex ensures that only one thread can access a critical section at a time."
+        },
+        {
+            "question": "What is a critical section?",
+            "options": [
+                "A part of a program that accesses shared resources",
+                "A section of the hard disk",
+                "A CPU register",
+                "A network packet"
+            ],
+            "answer": "A part of a program that accesses shared resources",
+            "explanation": "A critical section contains code that accesses shared resources and must be protected from concurrent access."
+        },
+        {
+            "question": "Which scheduling algorithm may cause starvation of low-priority processes?",
+            "options": [
+                "Priority Scheduling",
+                "Round Robin",
+                "FCFS",
+                "FIFO"
+            ],
+            "answer": "Priority Scheduling",
+            "explanation": "In priority scheduling, low-priority processes may wait indefinitely if higher-priority processes continue to arrive."
+        }
+    ]
+},
+"programming": {
+    "easy": [
+        {
+            "question": "What is Java?",
+            "options": [
+                "A programming language",
+                "A database",
+                "An operating system",
+                "A web browser"
+            ],
+            "answer": "A programming language",
+            "explanation": "Java is a high-level, object-oriented programming language."
+        },
+        {
+            "question": "Which keyword is used to define a class in Java?",
+            "options": [
+                "class",
+                "struct",
+                "define",
+                "object"
+            ],
+            "answer": "class",
+            "explanation": "The class keyword is used to declare a class in Java."
+        },
+        {
+            "question": "Which method is the entry point of a Java application?",
+            "options": [
+                "start()",
+                "main()",
+                "run()",
+                "execute()"
+            ],
+            "answer": "main()",
+            "explanation": "The main() method is the standard entry point for a Java application."
+        },
+        {
+            "question": "Which keyword is used to create an object in Java?",
+            "options": [
+                "new",
+                "create",
+                "object",
+                "make"
+            ],
+            "answer": "new",
+            "explanation": "The new keyword creates an object and allocates memory for it."
+        },
+        {
+            "question": "Which of the following is a primitive data type in Java?",
+            "options": [
+                "int",
+                "String",
+                "ArrayList",
+                "Object"
+            ],
+            "answer": "int",
+            "explanation": "int is one of Java's eight primitive data types."
+        },
+        {
+            "question": "Which symbol is used to end a statement in Java?",
+            "options": [
+                ";",
+                ":",
+                ".",
+                ","
+            ],
+            "answer": ";",
+            "explanation": "Java statements are generally terminated using a semicolon."
+        },
+        {
+            "question": "Which keyword is used for inheritance in Java?",
+            "options": [
+                "extends",
+                "inherits",
+                "implements",
+                "superclass"
+            ],
+            "answer": "extends",
+            "explanation": "The extends keyword is used when one class inherits from another class."
+        },
+        {
+            "question": "Which keyword is used to implement an interface?",
+            "options": [
+                "extends",
+                "implements",
+                "interface",
+                "inherit"
+            ],
+            "answer": "implements",
+            "explanation": "A class uses the implements keyword to implement an interface."
+        },
+        {
+            "question": "Which method is used to print output in Java?",
+            "options": [
+                "System.out.println()",
+                "print.console()",
+                "console.write()",
+                "output()"
+            ],
+            "answer": "System.out.println()",
+            "explanation": "System.out.println() prints text or values to the console."
+        },
+        {
+            "question": "Which feature allows the same method name with different parameters?",
+            "options": [
+                "Method overloading",
+                "Method overriding",
+                "Inheritance",
+                "Encapsulation"
+            ],
+            "answer": "Method overloading",
+            "explanation": "Method overloading allows multiple methods with the same name but different parameter lists."
+        }
+    ],
+    "medium": [
+        {
+            "question": "What does JVM stand for?",
+            "options": [
+                "Java Virtual Machine",
+                "Java Variable Machine",
+                "Java Verified Machine",
+                "Java Virtual Method"
+            ],
+            "answer": "Java Virtual Machine",
+            "explanation": "JVM is the runtime environment that executes Java bytecode."
+        },
+        {
+            "question": "What does JDK stand for?",
+            "options": [
+                "Java Development Kit",
+                "Java Deployment Kit",
+                "Java Data Kit",
+                "Java Debug Kit"
+            ],
+            "answer": "Java Development Kit",
+            "explanation": "JDK provides tools required to develop and compile Java applications."
+        },
+        {
+            "question": "What does JRE stand for?",
+            "options": [
+                "Java Runtime Environment",
+                "Java Resource Environment",
+                "Java Runtime Engine",
+                "Java Resource Engine"
+            ],
+            "answer": "Java Runtime Environment",
+            "explanation": "JRE provides the environment and libraries required to run Java applications."
+        },
+        {
+            "question": "Which concept hides internal implementation details?",
+            "options": [
+                "Abstraction",
+                "Inheritance",
+                "Polymorphism",
+                "Compilation"
+            ],
+            "answer": "Abstraction",
+            "explanation": "Abstraction hides unnecessary implementation details and exposes essential functionality."
+        },
+        {
+            "question": "Which concept bundles data and methods together?",
+            "options": [
+                "Encapsulation",
+                "Inheritance",
+                "Abstraction",
+                "Polymorphism"
+            ],
+            "answer": "Encapsulation",
+            "explanation": "Encapsulation combines data and methods into a single unit such as a class."
+        },
+        {
+            "question": "Which keyword prevents a class from being inherited?",
+            "options": [
+                "final",
+                "static",
+                "private",
+                "sealed"
+            ],
+            "answer": "final",
+            "explanation": "A final class cannot be extended by another class."
+        },
+        {
+            "question": "Which exception is thrown when an integer is divided by zero?",
+            "options": [
+                "ArithmeticException",
+                "IOException",
+                "NullPointerException",
+                "ClassNotFoundException"
+            ],
+            "answer": "ArithmeticException",
+            "explanation": "Integer division by zero causes an ArithmeticException in Java."
+        },
+        {
+            "question": "Which collection does not allow duplicate elements?",
+            "options": [
+                "Set",
+                "List",
+                "ArrayList",
+                "Vector"
+            ],
+            "answer": "Set",
+            "explanation": "The Set interface represents a collection that does not allow duplicate elements."
+        },
+        {
+            "question": "Which keyword is used to explicitly call the parent class constructor?",
+            "options": [
+                "super",
+                "this",
+                "parent",
+                "base"
+            ],
+            "answer": "super",
+            "explanation": "The super keyword can be used to access members of the parent class and invoke its constructor."
+        },
+        {
+            "question": "Which keyword refers to the current object?",
+            "options": [
+                "this",
+                "self",
+                "current",
+                "object"
+            ],
+            "answer": "this",
+            "explanation": "The this keyword refers to the current object in Java."
+        }
+    ],
+    "hard": [
+        {
+            "question": "What is method overriding?",
+            "options": [
+                "Defining a subclass method with the same signature as a superclass method",
+                "Defining multiple methods with different parameters",
+                "Creating multiple classes",
+                "Hiding a variable"
+            ],
+            "answer": "Defining a subclass method with the same signature as a superclass method",
+            "explanation": "Method overriding occurs when a subclass provides its own implementation of a superclass method with the same signature."
+        },
+        {
+            "question": "Which mechanism provides runtime polymorphism in Java?",
+            "options": [
+                "Method overriding",
+                "Method overloading",
+                "Constructor overloading",
+                "Static methods"
+            ],
+            "answer": "Method overriding",
+            "explanation": "Runtime polymorphism is achieved through dynamic method dispatch, commonly using method overriding."
+        },
+        {
+            "question": "What is garbage collection?",
+            "options": [
+                "Automatic removal of unreachable objects",
+                "Manual deletion of variables",
+                "Removing source code",
+                "Clearing the database"
+            ],
+            "answer": "Automatic removal of unreachable objects",
+            "explanation": "Java's garbage collector automatically reclaims memory occupied by objects that are no longer reachable."
+        },
+        {
+            "question": "What is the difference between == and equals() for objects?",
+            "options": [
+                "== compares references while equals() can compare object content",
+                "Both always compare content",
+                "== compares strings only",
+                "equals() compares memory addresses only"
+            ],
+            "answer": "== compares references while equals() can compare object content",
+            "explanation": "For objects, == checks reference identity, while equals() is designed for logical equality when properly overridden."
+        },
+        {
+            "question": "Which interface is commonly used to define a task for a thread?",
+            "options": [
+                "Runnable",
+                "Serializable",
+                "Cloneable",
+                "Comparable"
+            ],
+            "answer": "Runnable",
+            "explanation": "The Runnable interface is commonly used to define the code executed by a thread."
+        },
+        {
+            "question": "What is an immutable object?",
+            "options": [
+                "An object whose state cannot be changed after creation",
+                "An object that changes automatically",
+                "An object that cannot be created",
+                "An object stored only in RAM"
+            ],
+            "answer": "An object whose state cannot be changed after creation",
+            "explanation": "An immutable object's state remains unchanged after it is created. String is a common example."
+        },
+        {
+            "question": "Which keyword is used to handle an exception?",
+            "options": [
+                "try",
+                "catch",
+                "throw",
+                "All of these"
+            ],
+            "answer": "All of these",
+            "explanation": "try, catch and throw are all used as part of Java's exception handling mechanisms, although they serve different purposes."
+        },
+        {
+            "question": "What is an abstract class?",
+            "options": [
+                "A class that cannot be instantiated directly",
+                "A class containing only static methods",
+                "A class without variables",
+                "A class that cannot have methods"
+            ],
+            "answer": "A class that cannot be instantiated directly",
+            "explanation": "An abstract class cannot be instantiated directly and may contain abstract as well as concrete methods."
+        },
+        {
+            "question": "Which keyword is used to create a constant variable in Java?",
+            "options": [
+                "final",
+                "constant",
+                "static",
+                "const"
+            ],
+            "answer": "final",
+            "explanation": "A variable declared final cannot be reassigned after it has been initialized."
+        },
+        {
+            "question": "Which access modifier provides the widest access in Java?",
+            "options": [
+                "private",
+                "protected",
+                "public",
+                "default"
+            ],
+            "answer": "public",
+            "explanation": "A public member can be accessed from any class, subject to normal Java access rules."
+        }
+    ]
+},
+"cn": {
+    "easy": [
+        {
+            "question": "What does LAN stand for?",
+            "options": [
+                "Local Area Network",
+                "Large Area Network",
+                "Local Access Network",
+                "Linked Area Network"
+            ],
+            "answer": "Local Area Network",
+            "explanation": "LAN is a network that covers a relatively small geographical area such as a home, office or campus."
+        },
+        {
+            "question": "What does WAN stand for?",
+            "options": [
+                "Wide Area Network",
+                "Wireless Area Network",
+                "Web Area Network",
+                "World Access Network"
+            ],
+            "answer": "Wide Area Network",
+            "explanation": "WAN connects networks across large geographical areas."
+        },
+        {
+            "question": "Which device connects different networks?",
+            "options": [
+                "Router",
+                "Keyboard",
+                "Monitor",
+                "Printer"
+            ],
+            "answer": "Router",
+            "explanation": "A router forwards packets between different networks."
+        },
+        {
+            "question": "Which protocol is used to access web pages?",
+            "options": [
+                "HTTP",
+                "FTP",
+                "SMTP",
+                "SSH"
+            ],
+            "answer": "HTTP",
+            "explanation": "HTTP is the application-layer protocol used for transferring web resources."
+        },
+        {
+            "question": "What does IP stand for?",
+            "options": [
+                "Internet Protocol",
+                "Internet Process",
+                "Internal Protocol",
+                "Internet Program"
+            ],
+            "answer": "Internet Protocol",
+            "explanation": "IP is responsible for addressing and routing packets across interconnected networks."
+        },
+        {
+            "question": "Which protocol is commonly used to send emails?",
+            "options": [
+                "SMTP",
+                "HTTP",
+                "FTP",
+                "DNS"
+            ],
+            "answer": "SMTP",
+            "explanation": "SMTP is commonly used to send email messages between mail servers and clients."
+        },
+        {
+            "question": "Which device forwards frames using MAC addresses?",
+            "options": [
+                "Switch",
+                "Router",
+                "Modem",
+                "Repeater"
+            ],
+            "answer": "Switch",
+            "explanation": "A network switch forwards Ethernet frames using MAC address information."
+        },
+        {
+            "question": "What is the full form of DNS?",
+            "options": [
+                "Domain Name System",
+                "Data Name System",
+                "Domain Network Service",
+                "Digital Name Service"
+            ],
+            "answer": "Domain Name System",
+            "explanation": "DNS translates domain names into IP addresses and other DNS records."
+        },
+        {
+            "question": "Which protocol is used to securely access a remote computer?",
+            "options": [
+                "SSH",
+                "HTTP",
+                "FTP",
+                "SMTP"
+            ],
+            "answer": "SSH",
+            "explanation": "SSH provides secure remote login and command execution over a network."
+        },
+        {
+            "question": "Which device converts digital signals to signals suitable for transmission over some communication media?",
+            "options": [
+                "Modem",
+                "Switch",
+                "Router",
+                "Hub"
+            ],
+            "answer": "Modem",
+            "explanation": "A modem modulates and demodulates signals to enable communication over supported transmission media."
+        }
+    ],
+    "medium": [
+        {
+            "question": "Which layer of the OSI model is responsible for routing?",
+            "options": [
+                "Network Layer",
+                "Transport Layer",
+                "Session Layer",
+                "Physical Layer"
+            ],
+            "answer": "Network Layer",
+            "explanation": "The OSI Network Layer handles logical addressing and routing of packets."
+        },
+        {
+            "question": "Which protocol automatically assigns IP addresses to devices?",
+            "options": [
+                "DHCP",
+                "DNS",
+                "FTP",
+                "ARP"
+            ],
+            "answer": "DHCP",
+            "explanation": "DHCP dynamically assigns IP configuration such as IP addresses, subnet masks and gateways."
+        },
+        {
+            "question": "Which protocol maps an IP address to a MAC address on a local network?",
+            "options": [
+                "ARP",
+                "DNS",
+                "DHCP",
+                "HTTP"
+            ],
+            "answer": "ARP",
+            "explanation": "ARP is used in IPv4 networks to discover the MAC address associated with an IP address."
+        },
+        {
+            "question": "Which transport-layer protocol is connection-oriented?",
+            "options": [
+                "TCP",
+                "UDP",
+                "IP",
+                "ICMP"
+            ],
+            "answer": "TCP",
+            "explanation": "TCP establishes a connection and provides reliable, ordered byte-stream delivery."
+        },
+        {
+            "question": "Which transport protocol is connectionless?",
+            "options": [
+                "UDP",
+                "TCP",
+                "HTTP",
+                "FTP"
+            ],
+            "answer": "UDP",
+            "explanation": "UDP is connectionless and provides minimal transport-layer functionality without guaranteed delivery."
+        },
+        {
+            "question": "Which OSI layer is responsible for end-to-end delivery?",
+            "options": [
+                "Transport Layer",
+                "Network Layer",
+                "Data Link Layer",
+                "Physical Layer"
+            ],
+            "answer": "Transport Layer",
+            "explanation": "The Transport Layer provides end-to-end communication services between applications."
+        },
+        {
+            "question": "What is a MAC address?",
+            "options": [
+                "A hardware address associated with a network interface",
+                "A website address",
+                "A port number",
+                "A domain name"
+            ],
+            "answer": "A hardware address associated with a network interface",
+            "explanation": "A MAC address is a link-layer address associated with a network interface."
+        },
+        {
+            "question": "Which protocol is used to transfer files between computers?",
+            "options": [
+                "FTP",
+                "SMTP",
+                "DNS",
+                "ARP"
+            ],
+            "answer": "FTP",
+            "explanation": "FTP is a protocol designed for transferring files between networked systems."
+        },
+        {
+            "question": "Which protocol is used to translate domain names into IP addresses?",
+            "options": [
+                "DNS",
+                "DHCP",
+                "ARP",
+                "TCP"
+            ],
+            "answer": "DNS",
+            "explanation": "DNS resolves domain names to IP addresses and other DNS records."
+        },
+        {
+            "question": "Which protocol is used by HTTPS to provide encrypted web communication?",
+            "options": [
+                "TLS",
+                "FTP",
+                "ARP",
+                "DHCP"
+            ],
+            "answer": "TLS",
+            "explanation": "HTTPS uses TLS to provide encryption and authentication for web communication."
+        }
+    ],
+    "hard": [
+        {
+            "question": "What is the purpose of the TCP three-way handshake?",
+            "options": [
+                "To establish a TCP connection",
+                "To encrypt a file",
+                "To assign an IP address",
+                "To resolve a domain name"
+            ],
+            "answer": "To establish a TCP connection",
+            "explanation": "TCP uses SYN, SYN-ACK and ACK messages to establish a connection before data transfer."
+        },
+        {
+            "question": "Which TCP mechanism controls the amount of data sent before receiving acknowledgements?",
+            "options": [
+                "Sliding window",
+                "DNS",
+                "ARP",
+                "Routing table"
+            ],
+            "answer": "Sliding window",
+            "explanation": "TCP uses a sliding-window mechanism for flow control and efficient data transmission."
+        },
+        {
+            "question": "What is subnetting?",
+            "options": [
+                "Dividing a network into smaller logical networks",
+                "Combining multiple files",
+                "Encrypting network packets",
+                "Increasing CPU speed"
+            ],
+            "answer": "Dividing a network into smaller logical networks",
+            "explanation": "Subnetting divides an IP network into smaller subnetworks to improve address management and routing."
+        },
+        {
+            "question": "What is NAT?",
+            "options": [
+                "Network Address Translation",
+                "Network Access Transfer",
+                "Node Address Translation",
+                "Network Allocation Table"
+            ],
+            "answer": "Network Address Translation",
+            "explanation": "NAT translates between private and public IP address spaces, commonly allowing multiple private hosts to share public addresses."
+        },
+        {
+            "question": "Which routing protocol is a link-state routing protocol?",
+            "options": [
+                "OSPF",
+                "RIP",
+                "FTP",
+                "SMTP"
+            ],
+            "answer": "OSPF",
+            "explanation": "OSPF is a link-state interior gateway routing protocol."
+        },
+        {
+            "question": "Which routing protocol uses hop count as its primary metric?",
+            "options": [
+                "RIP",
+                "OSPF",
+                "BGP",
+                "HTTP"
+            ],
+            "answer": "RIP",
+            "explanation": "RIP uses hop count as its routing metric, with a maximum usable distance of 15 hops."
+        },
+        {
+            "question": "What is the purpose of ICMP?",
+            "options": [
+                "Network diagnostics and error reporting",
+                "File transfer",
+                "Email delivery",
+                "Web page rendering"
+            ],
+            "answer": "Network diagnostics and error reporting",
+            "explanation": "ICMP is used for network-layer error reporting and diagnostic functions such as ping."
+        },
+        {
+            "question": "What is congestion control?",
+            "options": [
+                "Managing traffic to prevent excessive network congestion",
+                "Assigning MAC addresses",
+                "Resolving domain names",
+                "Encrypting passwords"
+            ],
+            "answer": "Managing traffic to prevent excessive network congestion",
+            "explanation": "Congestion control mechanisms regulate transmission rates when the network becomes overloaded."
+        },
+        {
+            "question": "Which protocol is commonly used for secure file transfer over SSH?",
+            "options": [
+                "SFTP",
+                "SMTP",
+                "SNMP",
+                "ARP"
+            ],
+            "answer": "SFTP",
+            "explanation": "SFTP provides secure file transfer functionality over an SSH connection."
+        },
+        {
+            "question": "Which protocol is primarily used for exchanging routing information between autonomous systems?",
+            "options": [
+                "BGP",
+                "RIP",
+                "OSPF",
+                "DHCP"
+            ],
+            "answer": "BGP",
+            "explanation": "BGP is the primary inter-domain routing protocol used to exchange reachability information between autonomous systems."
+        }
+    ]
+}
+
+}
