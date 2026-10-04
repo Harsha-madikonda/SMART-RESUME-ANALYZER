@@ -1,141 +1,136 @@
 # 🚀 Smart Resume Analyzer
 
 <p align="center">
-  <img src="static/resume-hero.png" width="500">
+  <img src="static/resume-hero.png" width="500" alt="Smart Resume Analyzer">
 </p>
 
 <h1 align="center">📄 Smart Resume Analyzer</h1>
 
 <p align="center">
-AI-Powered Resume Screening & ATS Score Checker
+  AI-Powered Resume Screening, Career Preparation & Placement Practice Platform
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Flask-Web%20Framework-green?style=for-the-badge">
+  <a href="https://smart-resume-analyzer-9n9g.onrender.com/">
+    🌐 Live Demo
+  </a>
+  |
+  <a href="https://github.com/Harsha-madikonda/SMART-RESUME-ANALYZER">
+    💻 GitHub Repository
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-blue?style=for-the-badge&logo=python">
+  <img src="https://img.shields.io/badge/Flask-Web%20Framework-green?style=for-the-badge&logo=flask">
   <img src="https://img.shields.io/badge/NLP-spaCy-orange?style=for-the-badge">
-  <img src="https://img.shields.io/badge/ML-TFIDF%20%2B%20Cosine-red?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge">
+  <img src="https://img.shields.io/badge/ML-TF--IDF%20%2B%20Cosine-red?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge">
 </p>
 
 ---
 
-# 📌 Overview
+## 📌 Overview
 
-Smart Resume Analyzer is an AI-assisted ATS (Applicant Tracking System) Resume Screening application built using:
+**Smart Resume Analyzer** is an AI-assisted career preparation and resume screening web application built using Python, Flask, Natural Language Processing (NLP), and Machine Learning techniques.
 
-- Python
-- Flask
-- Natural Language Processing (spaCy)
-- Machine Learning (TF-IDF + Cosine Similarity)
+The application helps job seekers evaluate their resumes, identify missing skills, assess their career readiness, practise technical questions, and prepare for placement interviews.
 
-The system compares a candidate's resume against a Job Description and generates detailed ATS insights including:
+It combines resume analysis with career-specific learning recommendations in one platform.
 
-✅ ATS Match Score
+## ✨ Key Features
 
-✅ Semantic Similarity Score
+### 📄 1. Resume Analyzer & ATS Score
 
-✅ Skill Match Analysis
+* Upload a resume in PDF format.
+* Upload a Job Description (JD) in PDF or TXT format.
+* Paste a Job Description directly into the application.
+* Calculate resume-to-job matching scores.
+* Analyze matched and missing skills.
+* Identify resume strengths and areas for improvement.
+* Generate a resume summary and personalized recommendations.
+* Download a professional PDF evaluation report.
 
-✅ Missing Skills Detection
+### 🎯 2. Career Preparation & Skill Gap Analysis
 
-✅ Resume Completeness Analysis
+A personalized career preparation feature that helps users prepare for their target job role.
 
-✅ AI Resume Summary
+* Select a career path:
 
-✅ Personalized Recommendations
+  * Full Stack Developer
+  * AI/ML Engineer
+  * Software Engineer
+* Analyze skills identified from the uploaded resume.
+* Compare existing skills with the requirements of the selected career.
+* Identify skills that need improvement.
+* Calculate a career readiness percentage.
+* View a structured learning roadmap.
+* Update known skills and track readiness.
+* Navigate to practice questions to strengthen missing skills.
 
-✅ Professional PDF Report
+**Goal:** Help users understand their skill gaps and follow a more focused preparation plan for their chosen career.
 
-This project helps job seekers understand how well their resume matches a target role and identify areas for improvement before applying.
+### 📝 3. Practice Tests
 
----
+Practise questions to improve technical knowledge and placement readiness.
 
-# ✨ Features
+* Multiple question categories.
+* Difficulty selection: Easy, Medium, and Hard.
+* Programming and technical practice.
+* Aptitude questions.
+* Computer Science subjects such as DBMS, Operating Systems, and Computer Networks.
+* Interactive question-solving experience.
 
-## 📄 Resume & Job Description Support
+### 🎤 4. Mock Interview
 
-- Upload Resume (PDF)
-- Upload Job Description (PDF)
-- Upload Job Description (TXT)
-- Paste Job Description directly
+Practise interview questions in a simulated interview environment.
 
----
+* Select a target job role.
+* Choose an interview difficulty level.
+* Practise common HR and role-specific technical questions.
+* Answer questions through an interactive interface.
+* Track interview progress and time.
+* Receive scores and answer feedback.
+* Review matched keywords and improvement suggestions.
+* Get feedback appropriate to different interview question types.
 
-## 🎯 ATS Analysis
+### 📊 5. Resume Quality Analysis
 
-- Semantic Match Score
-- Skill Match Score
-- Missing Skills Detection
-- Strength Identification
-- ATS Rating System
+Evaluate resume completeness by detecting important sections, including:
 
----
+* Education
+* Skills
+* Projects
+* Experience
+* Certifications
+* Achievements
 
-## 📊 Resume Quality Analysis
+### 📑 6. Reports & Visualizations
 
-Resume Completeness Score based on:
-
-- Education
-- Skills
-- Projects
-- Experience
-- Certifications
-- Achievements
-
----
-
-## 🧠 AI-Assisted Insights
-
-- AI Resume Summary
-- Personalized Recommendations
-- Skill Improvement Suggestions
-
----
-
-## 📈 Visualizations
-
-- ATS Score Progress Bars
-- Skill Coverage Pie Chart
-
----
-
-## 📑 Reporting
-
-- Professional PDF Report Generation
-- Downloadable ATS Evaluation Report
+* ATS score progress indicators.
+* Skill coverage visualization.
+* Resume evaluation summary.
+* Missing-skill recommendations.
+* Downloadable PDF report.
 
 ---
 
-# 🛠 Tech Stack
+## 🛠️ Technology Stack
 
-## Backend
-
-- Python
-- Flask
-
-## NLP & Machine Learning
-
-- spaCy
-- PhraseMatcher
-- TF-IDF Vectorizer
-- Cosine Similarity
-
-## Frontend
-
-- HTML5
-- CSS3
-- JavaScript
-- Chart.js
-- Font Awesome
-
-## PDF Generation
-
-- ReportLab
+| Component        | Technologies                        |
+| ---------------- | ----------------------------------- |
+| Backend          | Python, Flask                       |
+| NLP              | spaCy, PhraseMatcher                |
+| Machine Learning | TF-IDF, Cosine Similarity           |
+| Frontend         | HTML5, CSS3, JavaScript             |
+| Visualization    | Chart.js                            |
+| Icons            | Font Awesome                        |
+| PDF Generation   | ReportLab                           |
+| Data Storage     | JSON question banks, CSV skill data |
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```text
 SMART-RESUME-ANALYZER/
@@ -144,13 +139,23 @@ SMART-RESUME-ANALYZER/
 ├── analyzer.py
 ├── pdf_generator.py
 ├── skills.csv
+├── requirements.txt
+│
+├── data/
+│   ├── practice_questions.json
+│   └── interview_questions.json
 │
 ├── templates/
 │   ├── index.html
-│   └── results.html
+│   ├── results.html
+│   ├── career.html
+│   ├── career_detail.html
+│   ├── practice.html
+│   └── interview.html
 │
 ├── static/
 │   ├── style.css
+│   ├── career.css
 │   └── resume-hero.png
 │
 ├── screenshots/
@@ -158,67 +163,58 @@ SMART-RESUME-ANALYZER/
 └── README.md
 ```
 
+*Note: The structure above describes the main project files; additional files may exist in the repository.*
+
 ---
 
-# ⚙️ Installation
+## ⚙️ Installation & Setup
 
-## Clone Repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Harsha-madikonda/SMART-RESUME-ANALYZER.git
-
 cd SMART-RESUME-ANALYZER
 ```
 
----
-
-## Create Virtual Environment
+### 2. Create a Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
----
+### 3. Activate the Environment
 
-## Activate Environment
-
-### Windows
+**Windows**
 
 ```bash
 venv\Scripts\activate
 ```
 
-### Linux / Mac
+**Linux / macOS**
 
 ```bash
 source venv/bin/activate
 ```
 
----
-
-## Install Dependencies
+### 4. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## Download spaCy Model
+### 5. Download the spaCy Language Model
 
 ```bash
 python -m spacy download en_core_web_sm
 ```
 
----
-
-## Run Application
+### 6. Run the Application
 
 ```bash
 python app.py
 ```
 
-Application will run at:
+Open your browser and visit:
 
 ```text
 http://127.0.0.1:5000
@@ -226,159 +222,105 @@ http://127.0.0.1:5000
 
 ---
 
-# 🔄 Workflow
+## 🔄 Application Workflow
 
-### Step 1
+### Resume Analysis
 
-Upload Resume PDF
+1. Upload your resume.
+2. Upload or paste a Job Description.
+3. Analyze the resume.
+4. Review matching scores and resume completeness.
+5. Identify missing skills.
+6. Read the summary and recommendations.
+7. Download the PDF report.
 
-⬇️
+### Career Preparation
 
-### Step 2
+1. Open Career Preparation.
+2. Select your target career.
+3. Upload or analyze your resume as required by the feature.
+4. Review detected skills and missing skills.
+5. Check your career readiness percentage.
+6. Follow the recommended learning roadmap.
+7. Practise the skills you need to improve.
 
-Upload Job Description
-OR
-Paste Job Description
+### Practice Tests & Mock Interviews
 
-⬇️
-
-### Step 3
-
-Analyze Resume
-
-⬇️
-
-### Step 4
-
-View ATS Scores
-
-⬇️
-
-### Step 5
-
-Review Missing Skills
-
-⬇️
-
-### Step 6
-
-Read AI Resume Summary
-
-⬇️
-
-### Step 7
-
-Download PDF Report
+1. Open Practice Tests or Mock Interview.
+2. Select the appropriate category, career role, or difficulty.
+3. Answer the questions.
+4. Review your score, feedback, and suggestions.
+5. Practise again to improve your preparation.
 
 ---
 
-# 📷 Screenshots
+## 🌐 Live Demo
 
-## 🏠 Home Page
+**Try the deployed application:**
 
-<img src="screenshots/home-page.png" width="800">
+👉 https://smart-resume-analyzer-9n9g.onrender.com/
 
----
+**Source Code:**
 
-## 📊 ATS Analysis Dashboard
+👉 https://github.com/Harsha-madikonda/SMART-RESUME-ANALYZER
 
-<img src="screenshots/ats-dashboard.png" width="800">
-
----
-
-## 🥧 Skill Coverage Visualization
-
-<img src="screenshots/skill-analysis.png" width="800">
+*Note: The live demo requires a successful deployment and may take some time to respond if the hosting service is idle.*
 
 ---
 
-## 📑 PDF Report
+## 🚀 Future Enhancements
 
-<img src="screenshots/pdf-report.png" width="800">
+Potential improvements for future versions include:
 
----
-
-# 🚀 Future Improvements (Version 2)
-
-Current version uses traditional NLP + ML techniques.
-
-Future AI-powered upgrades:
-
-### 🤖 Advanced AI Matching
-
-- Sentence Transformers
-- BERT Embeddings
-- Semantic Skill Matching
-
-### 🧠 LLM Integration
-
-- OpenAI GPT Integration
-- AI Resume Feedback
-- Resume Rewriting Suggestions
-
-### 🎯 Career Intelligence
-
-- Interview Readiness Score
-- Career Path Recommendations
-- Job Fit Prediction
-
-### 📈 Advanced ATS Engine
-
-- Keyword Weighting
-- Experience Scoring
-- Education Scoring
-- Recruiter Style ATS Ranking
+* Transformer-based semantic resume matching.
+* Advanced AI-powered resume feedback.
+* Automated resume rewriting suggestions.
+* More career paths and expanded skill databases.
+* Adaptive practice questions based on individual skill gaps.
+* More detailed interview performance analytics.
+* Personalized learning recommendations.
+* Progress history and user accounts.
 
 ---
 
-# 🎓 Learning Outcomes
+## 🎓 Learning Outcomes
 
-Through this project, I gained practical experience in:
+This project provides practical experience in:
 
-- Natural Language Processing (NLP)
-- Resume Parsing
-- Semantic Text Similarity
-- Flask Web Development
-- Machine Learning Fundamentals
-- PDF Report Generation
-- Frontend Dashboard Design
-- Data Visualization
-- AI-Assisted Recommendation Systems
+* Python and Flask web development.
+* Natural Language Processing.
+* Resume parsing and skill extraction.
+* TF-IDF and cosine similarity.
+* Machine Learning fundamentals.
+* Interactive frontend development.
+* JSON-based question-bank management.
+* PDF report generation.
+* Career readiness and skill-gap analysis.
+* Building an integrated career preparation application.
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-## Harshavardhan Madikonda
+**Harshavardhan Madikonda**
 
 Computer Science Engineering Student
 
-Interested in:
+Interested in Artificial Intelligence, Machine Learning, NLP, and Full-Stack Development.
 
-- Artificial Intelligence
-- Machine Learning
-- NLP
-- Full-Stack Development
-- Data Science
-
-### GitHub
-
-🔗 https://github.com/Harsha-madikonda
+* **GitHub:** https://github.com/Harsha-madikonda
+* **LinkedIn:** https://www.linkedin.com/in/madikondaharshavardhan/
 
 ---
 
-# ⭐ Support
+## ⭐ Support
 
-If you found this project useful:
+If you find this project useful:
 
-⭐ Star the repository
-
-🍴 Fork the project
-
-📢 Share with others
-
----
+* ⭐ Star the repository.
+* 🍴 Fork the project.
+* 📢 Share it with others.
 
 <p align="center">
-Made with ❤️ using Python, Flask, NLP & Machine Learning
+  Made with ❤️ using Python, Flask, NLP & Machine Learning
 </p>
